@@ -1,0 +1,39 @@
+.explication{
+  text-align: center;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-size: 120%;
+  color:white;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 80%;
+}
+.container {
+  text-align: center; /* Centre l'image et le texte dans le conteneur */
+  justify-content: center;
+}
+.texte-sous-image {
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-size: 70%;
+  color:white;
+  margin-left: 10%;
+  width: 80%;
+  max-width: 80%;
+  margin-top: 0%;
+}
+.imageprojet {
+  width: 50%;
+  height: auto;
+  margin-left: 10%;
+
+}
+.imageprojet2 {
+  width: auto;
+  height: 40%;
+  justify-content: center;
+
+}
+mat-grid-tile{
+  height: 10%;
+  margin-bottom: -50%;
+}
+

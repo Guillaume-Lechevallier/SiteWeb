@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+background: linear-gradient(to bottom right, #0d1642, #01A5F6) fixed no-repeat padding-box; ;}
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: white !important;
+  transition: 150ms color cubic-bezier(1, 0.1, 0, 1.04);
+}
+.mat-mdc-tab .mdc-tab__text-label {
+    color: #acacac !important;}
+mat-tab-group{
+    padding-top:30px;
+
+}
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: #00b3ff;
+    --mat-tab-header-active-focus-indicator-color: #00b3ff;}
+.titre{
+  color: white;
+  font-size: 200%;
+  margin-left: 5%;
+}
+.titresidegauche{
+    color: blue;
+  font-size: 50%;
+  margin-left: 5%;
+}
+.photolinkedin{
+  margin: 15%;
+  width:15vh;
+  height:15vh;
+  padding-top:30px;
+}
+mat-icon{
+  color: white !important;
+  margin-left: 5%;
+}
+.siteencoursdedev{
+  color: white !important;
+
+}
+
+
+
+
+body::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #005881; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #003161; /* color of the scroll thumb */
+  border-radius: 1px; /* roundness of the scroll thumb */
+}

@@ -1,0 +1,27 @@
+.mat-toolbar{
+  height: 20%;
+  background: transparent;
+}
+.telechargercv{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 5%;
+}
+.grostitre{
+  margin-left: 5%;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-weight: bold;
+  font-size: 120%;
+  color:white;
+}
+.explication{
+  margin-left: 5%;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-size: 120%;
+  color:white;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 80%;
+}
+

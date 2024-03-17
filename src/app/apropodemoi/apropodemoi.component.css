@@ -1,0 +1,17 @@
+.grostitre{
+  text-align: center;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-weight: bold;
+  font-size: 200%;
+  color:white;
+}
+.explication{
+  text-align: center;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-size: 120%;
+  color:white;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 80%;
+}
+

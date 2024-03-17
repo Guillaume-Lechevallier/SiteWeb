@@ -1,0 +1,23 @@
+<br><br>
+<form class="formulairecontact">
+  <mat-form-field class="mail">
+    <mat-label>Votre adresse mail</mat-label>
+    <input type="tel" class="form-control" [(ngModel)]="value2" matInput placeholder="" name="test">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="phone">
+    <mat-label>Votre numéro de téléphone</mat-label>
+    <input type="tel" class="form-control" [(ngModel)]="value1" matInput placeholder="" name="test">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="commentaire">
+    <mat-label>Commentaire</mat-label>
+    <textarea type="tel" class="form-control" [(ngModel)]="value3" matInput placeholder="Message" name="test"></textarea>
+  </mat-form-field><br>
+  <button mat-raised-button (click)="sendRequest()"><p class="boutonenvoyertexte">{{ textebouton }}</p></button>
+</form>
+<br>
+<p class="explication">Le système d'envoie ne passe pas par des services non développé par moi, cela ne passe pas par un service externe (sauf un programme en python codé moi même) !</p>
+<br>
+<p class="explication">Vous recevrez un mail de confirmation.</p>
+
