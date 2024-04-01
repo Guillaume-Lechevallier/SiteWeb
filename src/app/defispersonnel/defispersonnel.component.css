@@ -1,22 +1,12 @@
-.mat-toolbar{
-  height: 20%;
-  background: transparent;
-}
-.telechargercv{
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  right: 5%;
-}
 .grostitre{
-  margin-left: 5%;
+  text-align: center;
   font-family: Roboto, Helvetica Neue, sans-serif;
   font-weight: bold;
-  font-size: 120%;
+  font-size: 150%;
   color:white;
 }
 .explication{
-  margin-left: 5%;
+  text-align: center;
   font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 120%;
   color:white;
@@ -24,6 +14,4 @@
   width: 80%;
   max-width: 80%;
 }
-.margintest{
-  margin-left: 5%;
-}
+

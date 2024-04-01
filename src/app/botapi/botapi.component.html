@@ -1,0 +1,18 @@
+<br><br>
+<p class="grostitre">Formulaire de contact</p>
+<form class="formulairecontact">
+  <br>
+  <mat-form-field class="phone">
+    <mat-label>Votre numéro de téléphone</mat-label>
+    <input type="tel" class="form-control" [(ngModel)]="message" matInput placeholder="" name="test">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button (click)="sendRequest()"><p class="boutonenvoyertexte">{{textebouton}}</p></button>
+  <br> <br>
+  <mat-form-field class="phone">
+    <mat-label>{{retour}}</mat-label>
+    <input type="tel" class="form-control" matInput disabled placeholder="" name="test">
+  </mat-form-field>
+</form>
+
+

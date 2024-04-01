@@ -1,0 +1,22 @@
+<p class="grostitre">À propos des défis</p>
+<p class="explication">Ici, je met les défis que je me pose sur ce site, par exemple, le formulaire de contact, que j'ai réalisé, c'est le moyen pour moi de vous montrer ce que je peux faire et de me poser quelques défis</p>
+
+<mat-tab-group>
+  <mat-tab label="Formulaire de contact">
+    <br>
+    <p class="explication"> Ce système de mail passe par un application personnalisé de Google. </p><br>
+    <p class="explication"> Après avoir récupéré les identifiants d'application personnalisé, nous pouvons utiliser les principales fonctionnalitée, mais via nos applications.</p><br>
+    <p class="explication"> Tout ceci est hébergé sur l'hébergeur de code python en ligne : <strong>pythonanywhere.com</strong></p><br>
+    <p class="explication"> Afin que notre application Angular (Ce site) et notre application Python communiquent entre eux, nous passons par une API, ici, j'utilise Flask (framework pour Python) qui permet à notre application Angular d'envoyer des requettes HTTP à notre application en python</p><br>
+    <p class="explication"> Cela permet une meilleur sécuritée, par exemple, si le code source de notre application Web fuite et est accessible de tout le monde, les identifiants d'applications Google ne sont pas divulgé.</p>
+    <app-contactezmoi></app-contactezmoi> </mat-tab>
+  <mat-tab label="Jarvis personnalisé">
+     <br>
+    <p class="explication"> Ce système est différent du précédent </p><br>
+    <p class="explication"> Ici, j'utilise l'API du site <strong>botlibre.com</strong> afin de communiquer avec leur base d'Intelligence Artificiel.</p><br>
+    <p class="explication"> Donc pas de code en python, tout est hébergé ici, ou directement sur BotLibre !</p><br>
+    <app-botapi></app-botapi>
+  </mat-tab>
+
+
+</mat-tab-group>

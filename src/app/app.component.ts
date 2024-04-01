@@ -12,12 +12,13 @@ import {InfocomplementaireComponent} from "./infocomplementaire/infocomplementai
 import {TooltipComponent} from "@angular/material/tooltip";
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ContactezmoiComponent} from "./contactezmoi/contactezmoi.component";
+import {DefispersonnelComponent} from "./defispersonnel/defispersonnel.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatTooltipModule, RouterOutlet, MatToolbar, MatTabGroup, MatTab, MatIcon, ApropodemoiComponent, ExperienceproComponent, FormationscolaireComponent, CompetenceComponent, ProjetspersonnelComponent, InfocomplementaireComponent, TooltipComponent, ContactezmoiComponent],
+  imports: [MatTooltipModule, RouterOutlet, MatToolbar, MatTabGroup, MatTab, MatIcon, ApropodemoiComponent, ExperienceproComponent, FormationscolaireComponent, CompetenceComponent, ProjetspersonnelComponent, InfocomplementaireComponent, TooltipComponent, ContactezmoiComponent, DefispersonnelComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
