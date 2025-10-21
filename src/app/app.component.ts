@@ -10,7 +10,6 @@ import { CompetenceComponent } from './competence/competence.component';
 import { ProjetspersonnelComponent } from './projetspersonnel/projetspersonnel.component';
 import { InfocomplementaireComponent } from './infocomplementaire/infocomplementaire.component';
 import { ContactezmoiComponent } from './contactezmoi/contactezmoi.component';
-import { DefispersonnelComponent } from './defispersonnel/defispersonnel.component';
 
 interface SectionLink {
   id: string;
@@ -32,8 +31,7 @@ interface SectionLink {
     CompetenceComponent,
     ProjetspersonnelComponent,
     InfocomplementaireComponent,
-    ContactezmoiComponent,
-    DefispersonnelComponent
+    ContactezmoiComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -49,8 +47,7 @@ export class AppComponent {
     { id: 'skills', label: 'Compétences', description: 'Un éventail technique complet' },
     { id: 'projects', label: 'Réalisations', description: 'Des projets dont je suis fier' },
     { id: 'links', label: 'Liens', description: 'Contact et ressources utiles' },
-    { id: 'contact', label: 'Contact', description: 'Discutons ensemble' },
-    { id: 'challenge', label: 'Défis', description: 'Toujours aller plus loin' }
+    { id: 'contact', label: 'Contact', description: 'Discutons ensemble' }
   ];
 
   activeSection = this.sections[0].id;

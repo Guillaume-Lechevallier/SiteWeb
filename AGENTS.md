@@ -5,3 +5,5 @@
 - Pour les icônes simples, privilégier des caractères Unicode ou des SVG locaux.
 - L'API Flask (`APIpythonmail`) nécessite `Flask` et `Flask-Cors`. Les installer via `pip install -r APIpythonmail/requirements.txt` sur une machine connectée.
 - Les budgets Angular ont été ajustés pour tolérer l'interface riche. Ne pas descendre en dessous des nouvelles limites sans vérifier l'impact.
+- La barre d'outils principale conserve un offset de 16px et un border-radius : laisser cet espace supérieur pour éviter qu'elle soit collée au bord.
+- La section « Défis » a été retirée ; ne pas la réintroduire sans demande explicite.
