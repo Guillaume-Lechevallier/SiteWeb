@@ -1,46 +1,48 @@
-.explication{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 80%;
+.contact-wrapper {
+  display: grid;
+  gap: 32px;
 }
-.formulairecontact{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 auto;
-  width: 10%;
-  max-width: 80%;
-}
-.commentaire{
-  width: 300%;
-  text-align: center;
 
+.contact-intro h3 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+  margin-bottom: 12px;
 }
-button {
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 80%;
-  margin-right: 0%;
-  width: 80%;
-  max-width: 80%;
-}
-.boutonenvoyertexte{
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 100%;
-  color: #4c4c4c;
-}
-button:active{
 
+.contact-intro p {
+  margin: 0;
+  max-width: 640px;
 }
-.grostitre{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-weight: bold;
-  font-size: 200%;
-  color:white;
+
+.contact-form {
+  display: grid;
+  gap: 20px;
+  max-width: 640px;
+}
+
+.contact-field {
+  width: 100%;
+}
+
+.contact-field--textarea textarea {
+  min-height: 140px;
+}
+
+button[mat-raised-button] {
+  justify-self: start;
+  padding-inline: 32px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.contact-status {
+  font-size: 14px;
+  color: var(--color-accent);
+}
+
+.contact-note {
+  font-size: 14px;
+  color: rgba(244, 247, 251, 0.6);
+  max-width: 640px;
+  margin: 0;
 }

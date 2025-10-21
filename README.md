@@ -1,27 +1,55 @@
-# Untitled
+# Portfolio de Guillaume Lechevallier
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+Ce dépôt contient le front-end Angular du portfolio de Guillaume Lechevallier ainsi qu'une petite API Flask dédiée à l'envoi des messages de contact. L'interface a été complètement repensée pour offrir une expérience immersive tout en conservant les contenus existants.
 
-## Development server
+## Aperçu de l'interface
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Hero immersif avec navigation sticky permettant de parcourir chaque section en douceur.
+- Nouvelles mises en page pour les sections « À propos », « Compétences », « Réalisations » et « Défis » avec des cartes responsives.
+- Formulaires de contact et d'interaction bot modernisés pour une lecture claire.
+- Palette sombre modernisée, effets de profondeur et typographie harmonisée.
 
-## Code scaffolding
+## Prérequis
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js 18+ et npm.
+- Python 3.10+ pour l'API Flask.
+- L'installation des dépendances Python nécessite un accès réseau pour récupérer les packages `Flask` et `Flask-Cors`.
 
-## Build
+## Installation & builds
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+# Installation des dépendances front-end
+npm install
 
-## Running unit tests
+# Compilation de l'application Angular
+npm run build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Pour la partie backend :
 
-## Running end-to-end tests
+```bash
+cd APIpythonmail
+python -m venv .venv
+source .venv/bin/activate  # .venv\Scripts\activate sur Windows
+pip install -r requirements.txt
+python main.py
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> **Remarque :** L'environnement de travail actuel ne dispose pas d'accès réseau sortant ; l'installation de `Flask` / `Flask-Cors` ne peut donc pas être réalisée automatiquement dans ce contexte. Les instructions ci-dessus restent valables sur une machine avec un accès internet.
 
-## Further help
+## Structure des projets
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `src/` : application Angular (standalone components, Angular Material).
+- `APIpythonmail/` : micro-API Flask pour l'envoi d'emails, dépendances listées dans `requirements.txt`.
+- `angular.json` : budgets ajustés pour refléter la nouvelle richesse visuelle.
+
+## Scripts utiles
+
+- `npm run build` : build de production de l'interface.
+- `ng serve` : serveur de développement (non exécuté ici mais disponible).
+- `python APIpythonmail/main.py` : lance l'API Flask (nécessite les dépendances Python installées).
+
+## Déploiement
+
+Le front est conçu pour être déployé sur Firebase Hosting. L'API Flask peut être hébergée sur un service compatible (PythonAnywhere, VM personnelle…).
+

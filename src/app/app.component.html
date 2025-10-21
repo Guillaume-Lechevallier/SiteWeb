@@ -1,26 +1,196 @@
-<body>
-<mat-toolbar>
-  <a href="https://www.linkedin.com/in/guillaume-lechevallier/">
-  <img src="https://i.ibb.co/FKfDD6H/photo-cv.png" alt="photo de guillaume" class="photolinkedin"></a>
-  <div class="margintest"><p class="titre">Lechevallier Guillaume</p><p class="explication">Informaticien/Développeur</p></div>
+<div class="app-shell">
+  <mat-toolbar class="app-toolbar">
+    <div class="brand">
+      <img src="https://i.ibb.co/FKfDD6H/photo-cv.png" alt="Portrait de Guillaume" class="brand-photo" loading="lazy">
+      <div class="brand-copy">
+        <p class="brand-name">Guillaume Lechevallier</p>
+        <p class="brand-role">Développeur &amp; artisan de l'automatisation</p>
+      </div>
+    </div>
 
-  <mat-icon aria-hiden="false" color="white">build</mat-icon>
-  <p class="siteencoursdedev">Site en cours de développement</p>
+    <nav class="toolbar-nav" aria-label="Navigation principale">
+      <button
+        mat-button
+        class="toolbar-link"
+        *ngFor="let section of sections"
+        [class.toolbar-link--active]="section.id === activeSection"
+        [matTooltip]="section.description"
+        (click)="scrollTo(section.id)"
+        type="button"
+      >
+        <span class="toolbar-link__label">{{ section.label }}</span>
+      </button>
+    </nav>
 
-<div class="telechargercv"><a _ngcontent-ytf-c41="" mat-icon-button="" mattooltip="Télécharger mon cv !" href="https://drive.google.com/uc?export=download&id=1y_8AR8-CU54g7YR9j3oapnYWLEaAxga3" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base" aria-disabled="false" aria-describedby="cdk-describedby-message-1" cdk-describedby-host="0"><span class="mat-button-wrapper"><mat-icon _ngcontent-ytf-c41="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">download</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span><span class="mat-button-focus-overlay"></span></a></div></mat-toolbar>
+    <a
+      class="cv-button"
+      mat-flat-button
+      color="primary"
+      [href]="cvUrl"
+      target="_blank"
+      rel="noopener"
+      matTooltip="Télécharger mon CV"
+    >
+      <span class="icon icon-download" aria-hidden="true"></span>
+      <span>Mon CV</span>
+    </a>
+  </mat-toolbar>
 
-<mat-tab-group>
-  <mat-tab label="À propos de moi" class="titre"><app-apropodemoi></app-apropodemoi></mat-tab>
-  <mat-tab label="Experience Professionelle"> <app-experiencepro></app-experiencepro> </mat-tab>
-  <mat-tab label="Formation scolaire"> <app-formationscolaire></app-formationscolaire> </mat-tab>
-  <mat-tab label="Compétences"> <app-competence></app-competence> </mat-tab>
-  <mat-tab label="Réalisation"> <app-projetspersonnel></app-projetspersonnel> </mat-tab>
-  <mat-tab label="Information complémentaire et liens"> <app-infocomplementaire></app-infocomplementaire> </mat-tab>
-  <mat-tab label="Contactez moi !"> <app-contactezmoi></app-contactezmoi> </mat-tab>
-  <mat-tab label="Defis personnel !"> <app-defispersonnel></app-defispersonnel> </mat-tab>
-</mat-tab-group>
-<mat-toolbar>
+  <header class="hero">
+    <div class="hero-content">
+      <span class="chip">Toujours en quête de nouveaux défis</span>
+      <h1>Accélérez vos projets avec un passionné de solutions sur mesure</h1>
+      <p>
+        J'imagine, développe et déploie des expériences numériques fiables pour transformer des idées en produits concrets.
+        Entre automatisation, interfaces soignées et API performantes, je fais converger design et efficacité.
+      </p>
+      <div class="hero-actions">
+        <button mat-raised-button color="primary" type="button" (click)="scrollTo('contact')">
+          Me contacter
+        </button>
+        <button mat-stroked-button color="accent" type="button" (click)="scrollTo('projects')">
+          Voir mes réalisations
+        </button>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-orb hero-orb--primary"></div>
+      <div class="hero-orb hero-orb--accent"></div>
+      <div class="hero-grid"></div>
+    </div>
+  </header>
 
-</mat-toolbar>
+  <main>
+    <section class="section-shell" id="about">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">À propos</h2>
+            <p class="section-subtitle">
+              Une curiosité permanente, un goût pour l'excellence technique et l'envie d'offrir des expériences mémorables.
+            </p>
+          </div>
+        </div>
+        <app-apropodemoi></app-apropodemoi>
+      </div>
+    </section>
 
-</body>
+    <section class="section-shell" id="experience">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Expériences professionnelles</h2>
+            <p class="section-subtitle">
+              Un parcours ponctué de projets structurants en environnement exigeant : grands groupes, PME et missions terrain.
+            </p>
+          </div>
+        </div>
+        <app-experiencepro></app-experiencepro>
+      </div>
+    </section>
+
+    <section class="section-shell" id="education">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Formation</h2>
+            <p class="section-subtitle">
+              Des cursus ciblés pour renforcer mes compétences techniques et ma vision produit.
+            </p>
+          </div>
+        </div>
+        <app-formationscolaire></app-formationscolaire>
+      </div>
+    </section>
+
+    <section class="section-shell" id="skills">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Compétences</h2>
+            <p class="section-subtitle">
+              Un spectre complet du scripting à l'expérience utilisateur pour orchestrer des solutions robustes.
+            </p>
+          </div>
+        </div>
+        <app-competence></app-competence>
+      </div>
+    </section>
+
+    <section class="section-shell" id="projects">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Réalisations</h2>
+            <p class="section-subtitle">
+              Des prototypes aux produits en production, une sélection de projets illustrant ma créativité.
+            </p>
+          </div>
+        </div>
+        <app-projetspersonnel></app-projetspersonnel>
+      </div>
+    </section>
+
+    <section class="section-shell" id="links">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Informations complémentaires</h2>
+            <p class="section-subtitle">
+              Ressources, publications et liens pour explorer davantage mon univers professionnel.
+            </p>
+          </div>
+        </div>
+        <app-infocomplementaire></app-infocomplementaire>
+      </div>
+    </section>
+
+    <section class="section-shell" id="contact">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Entrer en contact</h2>
+            <p class="section-subtitle">
+              Une opportunité, une idée ou simplement l'envie d'échanger ? Écrivez-moi et construisons ensemble.
+            </p>
+          </div>
+        </div>
+        <app-contactezmoi></app-contactezmoi>
+      </div>
+    </section>
+
+    <section class="section-shell" id="challenge">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Défis personnels</h2>
+            <p class="section-subtitle">
+              Un laboratoire permanent pour explorer, apprendre et repousser mes limites.
+            </p>
+          </div>
+        </div>
+        <app-defispersonnel></app-defispersonnel>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <p class="brand-name">Guillaume Lechevallier</p>
+        <p class="footer-claim">Imaginer, concevoir et déployer des expériences numériques qui comptent.</p>
+      </div>
+      <div class="footer-actions">
+        <a class="footer-link" href="https://www.linkedin.com/in/guillaume-lechevallier/" target="_blank" rel="noopener">
+          <span class="icon icon-public" aria-hidden="true"></span>
+          <span>LinkedIn</span>
+        </a>
+        <a class="footer-link" [href]="cvUrl" target="_blank" rel="noopener">
+          <span class="icon icon-pdf" aria-hidden="true"></span>
+          <span>Mon CV</span>
+        </a>
+      </div>
+    </div>
+    <p class="footer-note">© {{ currentYear }} - Portfolio personnel développé avec Angular &amp; beaucoup de passion.</p>
+  </footer>
+</div>

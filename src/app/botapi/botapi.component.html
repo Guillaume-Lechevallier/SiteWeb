@@ -1,18 +1,23 @@
-<br><br>
-<p class="grostitre">Formulaire de contact</p>
-<form class="formulairecontact">
-  <br>
-  <mat-form-field class="phone">
-    <mat-label>Votre numéro de téléphone</mat-label>
-    <input type="tel" class="form-control" [(ngModel)]="message" matInput placeholder="" name="test">
-  </mat-form-field>
-  <br>
-  <button mat-raised-button (click)="sendRequest()"><p class="boutonenvoyertexte">{{textebouton}}</p></button>
-  <br> <br>
-  <mat-form-field class="phone">
-    <mat-label>{{retour}}</mat-label>
-    <input type="tel" class="form-control" matInput disabled placeholder="" name="test">
-  </mat-form-field>
-</form>
+<div class="bot-wrapper">
+  <div class="bot-intro">
+    <h4>Interagir avec le bot</h4>
+    <p>
+      Ce prototype s'appuie sur l'API BotLibre pour générer des réponses instantanées. Entrez un message ci-dessous pour découvrir
+      le fonctionnement de l'assistant.
+    </p>
+  </div>
 
+  <form class="bot-form" (submit)="$event.preventDefault(); sendRequest();">
+    <mat-form-field appearance="fill" class="bot-field">
+      <mat-label>Posez votre question</mat-label>
+      <input type="text" matInput [(ngModel)]="message" name="message">
+    </mat-form-field>
 
+    <button mat-stroked-button color="accent" type="submit">{{ textebouton }}</button>
+
+    <mat-form-field appearance="fill" class="bot-field" floatLabel="always">
+      <mat-label>{{ retour }}</mat-label>
+      <input matInput [value]="botResponse" disabled>
+    </mat-form-field>
+  </form>
+</div>

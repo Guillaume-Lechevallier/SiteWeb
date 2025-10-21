@@ -1,17 +1,43 @@
-.grostitre{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-weight: bold;
-  font-size: 200%;
-  color:white;
-}
-.explication{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 80%;
+.about {
+  display: grid;
+  gap: 40px;
 }
 
+.about-title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.about-intro p {
+  margin: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.about-card {
+  background: rgba(5, 8, 28, 0.45);
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(5, 8, 28, 0.35);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(5, 8, 28, 0.45);
+}
+
+.about-card h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.about-card p {
+  margin: 0;
+}

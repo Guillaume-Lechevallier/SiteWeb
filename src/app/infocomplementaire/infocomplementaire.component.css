@@ -1,166 +1,72 @@
-.explication{
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  width: 80%;
-  max-width: 80%;
-  margin: auto;
-  display:inline-block;
-  margin-left:20%;
+.info-grid {
+  display: grid;
+  gap: clamp(24px, 4vw, 32px);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-button{
-  margin-top: 10px;
-  margin-left: 10px;
-
-  display:inline-block;
+.info-card {
+  background: rgba(5, 8, 28, 0.45);
+  border-radius: 22px;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 44px rgba(5, 8, 28, 0.35);
+  display: grid;
+  gap: 18px;
 }
-.boutonlinkedin{
-  display: flex;
-  background: linear-gradient(to bottom, #0A66C2, #003c7c);
 
-  color: #ffffff;
-  padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  text-align: center;
-  vertical-align: middle;
+.info-card h3 {
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 600;
+}
+
+.info-card h4 {
+  font-size: 16px;
+  color: rgba(244, 247, 251, 0.7);
+  margin: 0;
+}
+
+.info-permit {
+  margin: 0;
+  font-size: 16px;
+}
+
+.hobby-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.hobby-list li::before {
+  content: '•';
+  color: var(--color-accent);
+  margin-right: 10px;
+}
+
+.link-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.link-card {
+  display: inline-flex;
   align-items: center;
-  border-radius: 0.5rem;
-  gap: 0.75rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: .6s ease;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(79, 156, 249, 0.12);
+  color: var(--color-text);
+  font-weight: 500;
+  transition: background-color 180ms ease, transform 180ms ease;
 }
 
-.boutonlinkedin svg {
-  height: 30px;
-}
-img{
-  max-width: 20px;
-  height: auto;
-  display: block;
-
-}
-.boutonlinkedin:hover {
-  box-shadow: none;
+.link-card:hover {
+  background: rgba(79, 156, 249, 0.25);
+  transform: translateX(4px);
 }
 
-.boutonGitHub{
-  display: flex;
-  background: linear-gradient(to bottom, #22252A, #0D0D0D);
-  color: #ffffff;
-  padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
+.link-icon {
+  width: 18px;
   text-align: center;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 0.5rem;
-  gap: 0.75rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: .6s ease;
-  height: 45px;
-  width: 150px;
-}
-
-.boutonGitHub svg {
-  height: 30px;
-}
-
-.boutonGitHub:hover {
-  box-shadow: none;
-}
-.boutontelephone{
-  display: flex;
-  background: linear-gradient(to bottom, #2d73e4, #0a1d4e);
-  color: #ffffff;
-  padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  text-align: center;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 0.5rem;
-  gap: 0.75rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: .6s ease;
-  height: 45px;
-}
-
-.boutontelephone svg {
-  height: 30px;
-}
-
-.boutontelephone:hover {
-  box-shadow: none;
-}
-
-.boutonmail{
-  display: flex;
-  background: linear-gradient(to bottom left, #ff0000, #500000);
-  color: #ffffff;
-  padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  text-align: center;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 0.5rem;
-  gap: 0.75rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: .6s ease;
-  height: 45px;
-}
-
-.boutonmail svg {
-  height: 30px;
-}
-
-.boutonmail:hover {
-  box-shadow: none;
-}
-.boutonMakerworld{
-  display: flex;
-  background: linear-gradient(to bottom, #6afd2e, #004313);
-  color: #ffffff;
-  padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  text-align: center;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 0.5rem;
-  gap: 0.75rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: .6s ease;
-  height: 45px;
-}
-
-.boutonMakerworld svg {
-  height: 30px;
-}
-
-.boutonMakerworld:hover {
-  box-shadow: none;
-}
-
-.titrebouton{
-  display: flex; /* Utilise Flexbox pour aligner les éléments côte à côte */
-  width: 50%;
-  margin: auto;
 }

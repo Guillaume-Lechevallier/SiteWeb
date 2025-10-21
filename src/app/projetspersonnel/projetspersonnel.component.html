@@ -1,93 +1,77 @@
 <mat-tab-group>
-
-  <mat-tab label="Porte automatique avec authentification">
-    <br>
-    <br>
-    <p class="explication">L'entreprise pour lequel je travaillais sur bordeaux m'a demandé de rechercher et concevoir
-      une solution qui permetterais de vérouiller la porte automatiquement d'une salle serveur, un système de sécurité
-      qui nécessite d'être déverouillé par une authentification en active directory (utilisateur enregistré sur le
-      réseau local de l'entreprise)Un programme de notification alertera l’utilisateur final (s’il le souhaite) au cas
-      où la porte se retrouve ouverte, dans cette même suite de programme, il y a aussi un système de Logs nous
-      permettant d'avoir un accès à toutes les allées et venue des personnes dans la salle des serveurs</p>
-    <br>
-    <img class="imageprojet" src="https://i.ibb.co/X2XnJdD/appliporteauth.png">
-    <p class="texte-sous-image">Interface utilisateur de la console d'Authentification et d'ouverture de la porte</p>
-    <br>
-    <p class="explication">Ici, nous voyons la maquette en cours de construction. Car, bien entendu, la solution n'a
-      finalement pas été déployé par l'entreprise par manque de temps, pour la présentation, j'ai donc du coup réalisé
-      une maquette en 3D avec le logiciel de conception SolidWorks. Cette maquette à pu intégrer un RaspBerry pi 1B, une
-      bredboard, et des capteurs, la roue cranté orange, représente le moteur de la porte </p>
-    <br>
-    <img class="imageprojet" src="https://i.ibb.co/RgDH8mf/297651446-995038721165664-7173874603866743795-n.jpg">
-    <br>
-    <p class="explication">Même si ce projet n'est pas un projet basé entièrement sur la robotique, celà m'a permis de
-      commencer à apprendre à en faire , mais aussi à réaliser de l'impression 3D, de plus, cela est mon premier gros
-      projet !</p>
-
-  </mat-tab>
-  <mat-tab label="Application Web base de donnée téléphonie">
-    <br>
-    <br>
-    <p class="explication">Afin de remplacer un fichier Excel créé par AVEM Groupe comme base de donnée pour stocker des
-      numéros de téléphones professionnel, j'ai réalisé une application Web qui gère une base de donnée en SQL afin
-      d'avoir quelque chose de plus propre et de plus sécurisé</p>
-    <br>
-    <img class="imageprojet" src="https://i.ibb.co/sWgF3MX/Shemaapplit-l-phonie.png">
-    <p class="texte-sous-image">"Shéma d'infrastructure" de l'application WEB réalisé</p>
-
-    <br><br>
-    <p class="explication">Afin de pouvoir exercer toutes les partie d'un programme, j'ai été ammené à réaliser une
-      architecture complette pour valider le projet auprès de l'école, donc, faire une application Web, une API, une
-      base de donnée SQL utilisant MariaDB</p>
-  </mat-tab>
-  <mat-tab label="Récupération commentaire Twitch">
-    <br>
-    <br>
-    <p class="explication"> A des fins de divertissement, j'ai codé un programme permettant de récupérer et retranscrire
-      sur un ordinateur le contenu d'un tchat twitch, cela peut-être super interressant pour la modération, couplé à
-      l'intelligence artificiel, cela est super pratique pour la modération ! Ou encore pour des challenges, par
-      exemple, lorsqu'un utilisateur réalise une commande particulière, cela active quelque chose sur son PC</p>
-    <br>
-
-    <div class="container" ><img class="imageprojet2" src="https://i.ibb.co/6mxPh7M/jhqsdgsqhgfdytusqgfhcgvdqsufduyhsqfd.png">
+  <mat-tab label="Contrôle d'accès intelligent">
+    <div class="project-tab">
+      <p class="project-text">
+        Concevoir une solution de sécurisation pour une salle serveur : voilà le défi relevé pour Watsoft. J'ai imaginé un
+        dispositif piloté en C# Windows Forms, authentifié via Active Directory, couplé à un Raspberry Pi pour l'automatisation de
+        la porte et un module de notification en temps réel. Un projet mêlant électronique, développement et gestion des accès.
+      </p>
+      <img class="project-image" src="https://i.ibb.co/X2XnJdD/appliporteauth.png" alt="Console de contrôle d'accès">
+      <p class="project-caption">Console d'authentification et de gestion de la porte sécurisée.</p>
+      <p class="project-text">
+        La maquette physique, modélisée sur SolidWorks, intègre capteurs, carte Raspberry Pi et mécanisme d'entraînement. Même si
+        le projet est resté au stade de prototype, il m'a initié à la robotique et à l'impression 3D.
+      </p>
+      <img class="project-image" src="https://i.ibb.co/RgDH8mf/297651446-995038721165664-7173874603866743795-n.jpg" alt="Maquette du système">
     </div>
-    <p class="explication">Le code est disponible sur mon GitHub !</p>
   </mat-tab>
-  <mat-tab label="Assistant autonome via intelligence artificiel">
-    <br>
-    <br>
-    <p class="explication">N'avez-vous pas révé d'un assistant virtuel couplé à l'intelligence artificiel ?</p>
-    <p class="explication">Grace à l'API de ChatGPT et de google assistant, cela est possible !</p>
-    <p class="explication">l'API de google Assistant nous permet de récupérer la voix et de la retranscrire en tant que
-      texte, tandis que l'API de ChatGPT nous permet d'avoir l'intelligence artificel qui pourra répondre à nos
-      questions ! De plus, avec GPT4, nous avons la possibilité de faire directement des recherches sur le Web !</p>
-  </mat-tab>
-  <mat-tab label="Jarvis à son poigné">
-    <br>
-    <br>
-    <p class="explication">Ne voulez-vous pas d'un Pipboy à votre poigné contenant un Jarvis ?</p>
-    <p class="explication">Grace à l'API de ChatGPT et de google assistant, cela est possible ! Comme pour le précédent
-      projet, nous avons la possibilitée d'avoir des réponses d'intéligences artificielles dans notre poignée !</p>
 
-    <p class="explication">Grace à un Raspberry Pi 4, j'ai eu la possibilité de communiqué avec les serveurs d'OpenAI et
-      de Google afin de pouvoir répondre à nos question</p>
-    <br>
-    <div class="container"><img class="imageprojet2" src="https://i.ibb.co/t3xTWCv/429934417-1761034327729002-2343471779999387977-n.jpg"></div>
-    <br>
-    <p class="explication">Pour l'instant, seule un prototype de la batterie sur l'épaule est réalisée imprimée, il reste quelques finitions
-      et c'est partis ! </p>
+  <mat-tab label="Application Web téléphonie">
+    <div class="project-tab">
+      <p class="project-text">
+        Pour remplacer un fichier Excel gérant des numéros professionnels chez AVEM, j'ai développé une application web complète :
+        interface Angular, API dédiée et base de données MariaDB. Objectif : offrir un outil sécurisé, structuré et évolutif.
+      </p>
+      <img class="project-image" src="https://i.ibb.co/sWgF3MX/Shemaapplit-l-phonie.png" alt="Schéma d'infrastructure téléphonie">
+      <p class="project-caption">Architecture de la solution : front Angular, API Node et base MariaDB.</p>
+    </div>
   </mat-tab>
-  <mat-tab label="Partage QR code Basic fit">
-    <br>
-    <br>
-    <p class="explication">Le forfait premium de Basic-Fit ne peux faire passer qu'une personne de notre entourage dans
-      le même club que vous utilisez</p>
-    <p class="explication">Et pourquoi pas faire profiter vos amis lorsque vous n'utilisez pas la salle ?</p>
-    <p class="explication">Mon script permet de récupérer le QR code de Basic-Fit sur l'application hébergé sur une
-      machine virtuelle afin de la transférer sur un site internet fait en python qui s'actualise tout seul (les QR
-      codes s'actualisent toutes les secondes)</p>
-    <p class="explication">Bien-sur, ceci est accepté par Basic-Fit étant donnée que l'application soit être stocké sur
-      un seul et même appareil (ici une machine virtuelle)</p>
-    <div class="container"><img class="imageprojet2" src="https://i.ibb.co/4dhVYGh/Capture-d-cran-2024-03-06-043110.png"></div>
+
+  <mat-tab label="Streaming &amp; IA">
+    <div class="project-tab">
+      <p class="project-text">
+        Un bot connecté à Twitch récupérant le chat en temps réel pour modérer ou déclencher des actions. Associé à l'IA, il ouvre
+        la voie à des expériences interactives et à des automatisations originales pour les créateurs de contenu.
+      </p>
+      <div class="project-visual">
+        <img class="project-image project-image--narrow" src="https://i.ibb.co/6mxPh7M/jhqsdgsqhgfdytusqgfhcgvdqsufduyhsqfd.png" alt="Interface de récupération Twitch">
+      </div>
+      <p class="project-text">Le code est disponible sur mon GitHub.</p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Assistant vocal augmenté">
+    <div class="project-tab">
+      <p class="project-text">
+        En combinant Google Assistant et l'API de ChatGPT, j'ai conçu un assistant autonome capable de comprendre la voix,
+        d'interroger des sources en ligne et de répondre de manière contextualisée. Un terrain de jeu idéal pour explorer les
+        interactions voix/IA.
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Jarvis wearable">
+    <div class="project-tab">
+      <p class="project-text">
+        Un prototype de Pip-Boy moderne : un Raspberry Pi 4 intégré dans un boîtier imprimé en 3D, connecté à l'API d'OpenAI et à
+        Google Assistant pour obtenir des réponses instantanées depuis le poignet. Le projet continue d'évoluer avec un module
+        d'alimentation embarqué.
+      </p>
+      <div class="project-visual">
+        <img class="project-image project-image--narrow" src="https://i.ibb.co/t3xTWCv/429934417-1761034327729002-2343471779999387977-n.jpg" alt="Prototype Jarvis wearable">
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Partage de QR code Basic-Fit">
+    <div class="project-tab">
+      <p class="project-text">
+        À partir du QR code Basic-Fit premium, j'ai développé un script qui synchronise un code mis à jour en continu via une
+        machine virtuelle. Résultat : un accès contrôlé et conforme, partagé en toute sécurité avec ses proches.
+      </p>
+      <div class="project-visual">
+        <img class="project-image project-image--narrow" src="https://i.ibb.co/4dhVYGh/Capture-d-cran-2024-03-06-043110.png" alt="Interface de partage QR code">
+      </div>
+    </div>
   </mat-tab>
 </mat-tab-group>

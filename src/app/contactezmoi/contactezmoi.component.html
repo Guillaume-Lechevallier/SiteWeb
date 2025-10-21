@@ -1,24 +1,35 @@
-<br><br>
-<p class="grostitre">Formulaire de contact</p>
-<form class="formulairecontact">
-  <mat-form-field class="mail">
-    <mat-label>Votre adresse mail</mat-label>
-    <input type="tel" class="form-control" [(ngModel)]="value2" matInput placeholder="" name="test">
-  </mat-form-field>
-  <br>
-  <mat-form-field class="phone">
-    <mat-label>Votre numéro de téléphone</mat-label>
-    <input type="tel" class="form-control" [(ngModel)]="value1" matInput placeholder="" name="test">
-  </mat-form-field>
-  <br>
-  <mat-form-field class="commentaire">
-    <mat-label>Commentaire</mat-label>
-    <textarea type="tel" class="form-control" [(ngModel)]="value3" matInput placeholder="Message" name="test"></textarea>
-  </mat-form-field><br>
-  <button mat-raised-button (click)="sendRequest()"><p class="boutonenvoyertexte">{{ textebouton }}</p></button>
-</form>
-<br>
-<p class="explication">Le système d'envoie ne passe pas par des services non développé par moi, cela ne passe pas par un service externe (sauf un programme en python codé moi même) !</p>
-<br>
-<p class="explication">Vous recevrez un mail de confirmation.</p>
+<div class="contact-wrapper">
+  <div class="contact-intro">
+    <h3>Formulaire de contact</h3>
+    <p>
+      Laissez-moi un message avec votre email, vos coordonnées et quelques détails sur votre besoin. Je vous répondrai rapidement
+      et vous recevrez une confirmation automatique.
+    </p>
+  </div>
 
+  <form class="contact-form" (submit)="$event.preventDefault(); sendRequest();">
+    <mat-form-field appearance="fill" class="contact-field">
+      <mat-label>Votre adresse mail</mat-label>
+      <input type="email" matInput [(ngModel)]="value2" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="contact-field">
+      <mat-label>Votre numéro de téléphone</mat-label>
+      <input type="tel" matInput [(ngModel)]="value1" name="phone">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="contact-field contact-field--textarea">
+      <mat-label>Message</mat-label>
+      <textarea matInput [(ngModel)]="value3" name="message" rows="5" required></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      {{ textebouton }}
+    </button>
+    <span class="contact-status" *ngIf="statusMessage">{{ statusMessage }}</span>
+  </form>
+
+  <p class="contact-note">
+    Les données sont traitées via une API personnelle développée en Python/Flask. Aucun service tiers ne stocke vos informations.
+  </p>
+</div>

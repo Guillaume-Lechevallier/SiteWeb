@@ -1,46 +1,30 @@
-.explication{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 80%;
+.bot-wrapper {
+  display: grid;
+  gap: 24px;
+  max-width: 640px;
 }
-.formulairecontact{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 auto;
-  width: 10%;
-  max-width: 80%;
-}
-.commentaire{
-  width: 300%;
-  text-align: center;
 
+.bot-intro h4 {
+  font-size: 18px;
+  margin: 0 0 8px;
 }
-button {
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 80%;
-  margin-right: 0%;
-  width: 80%;
-  max-width: 80%;
-}
-.boutonenvoyertexte{
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 100%;
-  color: #4c4c4c;
-}
-button:active{
 
+.bot-intro p {
+  margin: 0;
 }
-.grostitre{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-weight: bold;
-  font-size: 200%;
-  color:white;
+
+.bot-form {
+  display: grid;
+  gap: 16px;
+}
+
+.bot-field {
+  width: 100%;
+}
+
+button[mat-stroked-button] {
+  justify-self: start;
+  border-radius: 999px;
+  padding-inline: 28px;
+  font-weight: 600;
 }
