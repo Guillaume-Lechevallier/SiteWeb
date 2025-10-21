@@ -1,65 +1,26 @@
-<mat-tab-group cols="2">
-  <mat-tab label="Informations complémentaires">
-    <p class="explication">Permis B : En cours (code acqui)</p>
-    <br>
-    <br>
-    <p class="explication">Mes Hobbies : </p>
-    <p class="explication">- L'informatique et la programmation</p>
-    <p class="explication">- la robotique et l'éléctronique</p>
-    <p class="explication">- Les jeux vidéos (minecraft en ce moments) ou encore, VR (mod Risk Of Rain 2 par
-      exemple)</p>
-    <p class="explication">- Réparation et vente de Pc trouvé en décheterie</p>
-    <p class="explication">- Jardinage </p>
-  </mat-tab>
-  <mat-tab label="Liens">
+<div class="info-grid">
+  <section class="info-card">
+    <h3>Informations complémentaires</h3>
+    <p class="info-permit">{{ permit }}</p>
+    <h4>Mes hobbies</h4>
+    <ul class="hobby-list">
+      <li *ngFor="let hobby of hobbies">{{ hobby }}</li>
+    </ul>
+  </section>
 
-    <div class="titrebouton">
-      <p class="explication">Mon Linkedin</p>
-      <button class="boutonlinkedin"
-            onclick="window.location.href = 'https://www.linkedin.com/in/guillaume-lechevallier/';">
-      <svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-        <g id="SVGRepo_iconCarrier">
-          <path d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"
-                fill="#ffffff"></path>
-        </g>
-      </svg>
-      LinkedIn
-    </button></div>
- <div class="titrebouton">
-   <p class="explication">Mon GitHub</p>
-    <button class="boutonGitHub"
-            onclick="window.location.href = 'https://github.com/Guillaume-Lechevallier';">
-
-      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
-      Github
-    </button></div>
-     <div class="titrebouton">
-       <p class="explication">Mon Téléphone</p>
-    <button class="boutontelephone"
-            onclick="window.location.href = 'tel:0787063938';">
-
-      <img src="https://cdn-icons-png.flaticon.com/512/2099/2099140.png">
-      0787063938
-    </button></div>
-     <div class="titrebouton">
-       <p class="explication">Mon Mail</p>
-    <button class="boutonmail" onclick="window.location.href = 'mailto:moilechevallier@gmail.com';">
-
-      <img src="https://cdn-icons-png.flaticon.com/512/6244/6244710.png">
-      moilechevallier&#64;gmail.com
-    </button></div>
-     <div class="titrebouton">
-       <p class="explication">Mon compte MakerWorld</p>
-    <button class="boutonMakerworld"
-            onclick="window.location.href = 'https://makerworld.com/en/u/2700611989';">
-
-      <img
-        src="https://bbl-forum.s3.dualstack.us-west-1.amazonaws.com/original/3X/e/8/e89cbec6fd3aa4cd86716483def8edc6fdd1e7c7.png">
-      Makerworld
-    </button></div>
-  </mat-tab>
-</mat-tab-group>
-
-
+  <section class="info-card">
+    <h3>Me retrouver en ligne</h3>
+    <div class="link-grid">
+      <a
+        class="link-card"
+        *ngFor="let link of links"
+        [href]="link.href"
+        [attr.target]="link.external ? '_blank' : null"
+        [attr.rel]="link.external ? 'noopener' : null"
+      >
+        <span class="link-icon" aria-hidden="true">{{ link.icon }}</span>
+        <span>{{ link.label }}</span>
+      </a>
+    </div>
+  </section>
+</div>

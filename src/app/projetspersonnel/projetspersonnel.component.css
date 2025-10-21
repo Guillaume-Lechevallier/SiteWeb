@@ -1,39 +1,47 @@
-.explication{
-  text-align: center;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 80%;
+:host {
+  display: block;
 }
-.container {
-  text-align: center; /* Centre l'image et le texte dans le conteneur */
+
+mat-tab-group {
+  width: 100%;
+}
+
+mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
+  padding: clamp(16px, 3vw, 32px) clamp(8px, 2vw, 16px);
+}
+
+.project-tab {
+  display: grid;
+  gap: clamp(16px, 2.5vw, 28px);
+  justify-items: start;
+}
+
+.project-text {
+  text-align: left;
+  font-size: 16px;
+  margin: 0;
+  max-width: 880px;
+}
+
+.project-image {
+  width: min(100%, 560px);
+  border-radius: 18px;
+  box-shadow: 0 24px 48px rgba(5, 8, 28, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-image--narrow {
+  width: min(100%, 420px);
+}
+
+.project-caption {
+  font-size: 14px;
+  color: rgba(244, 247, 251, 0.6);
+  margin: -12px 0 0;
+}
+
+.project-visual {
+  display: flex;
   justify-content: center;
+  width: 100%;
 }
-.texte-sous-image {
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 70%;
-  color:white;
-  margin-left: 10%;
-  width: 80%;
-  max-width: 80%;
-  margin-top: 0%;
-}
-.imageprojet {
-  width: 50%;
-  height: auto;
-  margin-left: 10%;
-
-}
-.imageprojet2 {
-  width: auto;
-  height: 40%;
-  justify-content: center;
-
-}
-mat-grid-tile{
-  height: 10%;
-  margin-bottom: -50%;
-}
-
