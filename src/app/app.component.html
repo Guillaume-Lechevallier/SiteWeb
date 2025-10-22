@@ -1,42 +1,79 @@
 <div class="app-shell">
-  <mat-toolbar class="app-toolbar">
-    <div class="toolbar-inner">
-      <div class="brand">
-        <img src="https://i.ibb.co/FKfDD6H/photo-cv.png" alt="Portrait de Guillaume" class="brand-photo" loading="lazy">
-        <div class="brand-copy">
-          <p class="brand-name">Guillaume Lechevallier</p>
-          <p class="brand-role">Développeur &amp; artisan de l'automatisation</p>
+  <div class="toolbar-wrapper">
+    <mat-sidenav-container class="toolbar-container">
+      <mat-sidenav #drawer class="app-sidenav" mode="over" position="end" role="navigation" aria-label="Navigation secondaire">
+        <div class="sidenav-shell">
+          <p class="sidenav-title">Navigation</p>
+          <nav class="sidenav-nav">
+            <button
+              mat-button
+              class="sidenav-link"
+              type="button"
+              *ngFor="let section of sections"
+              [class.sidenav-link--active]="section.id === activeSection"
+              (click)="scrollTo(section.id, true)"
+            >
+              {{ section.label }}
+            </button>
+          </nav>
         </div>
-      </div>
+      </mat-sidenav>
 
-      <nav class="toolbar-nav" aria-label="Navigation principale">
-        <button
-          mat-button
-          class="toolbar-link"
-          *ngFor="let section of sections"
-          [class.toolbar-link--active]="section.id === activeSection"
-          [matTooltip]="section.description"
-          (click)="scrollTo(section.id)"
-          type="button"
-        >
-          <span class="toolbar-link__label">{{ section.label }}</span>
-        </button>
-      </nav>
+      <mat-sidenav-content>
+        <mat-toolbar class="app-toolbar">
+          <div class="toolbar-inner">
+            <div class="brand">
+              <img src="https://i.ibb.co/FKfDD6H/photo-cv.png" alt="Portrait de Guillaume" class="brand-photo" loading="lazy">
+              <div class="brand-copy">
+                <p class="brand-name">Guillaume Lechevallier</p>
+                <p class="brand-role">Développeur &amp; artisan de l'automatisation</p>
+              </div>
+            </div>
 
-      <a
-        class="cv-button"
-        mat-flat-button
-        color="primary"
-        [href]="cvUrl"
-        target="_blank"
-        rel="noopener"
-        matTooltip="Télécharger mon CV"
-      >
-        <span class="icon icon-download" aria-hidden="true"></span>
-        <span>Mon CV</span>
-      </a>
-    </div>
-  </mat-toolbar>
+            <nav class="toolbar-nav" #navBar aria-label="Navigation principale">
+              <button
+                mat-button
+                class="toolbar-link"
+                *ngFor="let section of sections"
+                [class.toolbar-link--active]="section.id === activeSection"
+                [matTooltip]="section.description"
+                (click)="scrollTo(section.id)"
+                type="button"
+              >
+                <span class="toolbar-link__label">{{ section.label }}</span>
+              </button>
+            </nav>
+
+            <div class="toolbar-actions">
+              <button
+                *ngIf="navOverflow"
+                mat-icon-button
+                type="button"
+                class="toolbar-menu"
+                (click)="drawer.open()"
+                aria-label="Ouvrir la navigation condensée"
+              >
+                <span class="menu-icon" aria-hidden="true"></span>
+              </button>
+
+              <a
+                class="cv-button"
+                mat-flat-button
+                color="primary"
+                [href]="cvUrl"
+                target="_blank"
+                rel="noopener"
+                matTooltip="Télécharger mon CV"
+              >
+                <span class="icon icon-download" aria-hidden="true"></span>
+                <span>Mon CV</span>
+              </a>
+            </div>
+          </div>
+        </mat-toolbar>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 
   <header class="hero">
     <div class="hero-shell">

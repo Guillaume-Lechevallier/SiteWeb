@@ -1,8 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, HostListener, NgZone, OnDestroy, ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ApropodemoiComponent } from './apropodemoi/apropodemoi.component';
 import { ExperienceproComponent } from './experiencepro/experiencepro.component';
 import { FormationscolaireComponent } from './formationscolaire/formationscolaire.component';
@@ -10,6 +11,7 @@ import { CompetenceComponent } from './competence/competence.component';
 import { ProjetspersonnelComponent } from './projetspersonnel/projetspersonnel.component';
 import { InfocomplementaireComponent } from './infocomplementaire/infocomplementaire.component';
 import { ContactezmoiComponent } from './contactezmoi/contactezmoi.component';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 
 interface SectionLink {
   id: string;
@@ -24,7 +26,9 @@ interface SectionLink {
     MatTooltipModule,
     MatToolbar,
     MatButtonModule,
+    MatSidenavModule,
     NgFor,
+    NgIf,
     ApropodemoiComponent,
     ExperienceproComponent,
     FormationscolaireComponent,
@@ -36,7 +40,7 @@ interface SectionLink {
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnDestroy {
   readonly cvUrl = 'https://drive.google.com/uc?export=download&id=1y_8AR8-CU54g7YR9j3oapnYWLEaAxga3';
   readonly currentYear = new Date().getFullYear();
 
@@ -51,11 +55,37 @@ export class AppComponent {
   ];
 
   activeSection = this.sections[0].id;
+  navOverflow = false;
 
-  scrollTo(sectionId: string) {
+  @ViewChild('navBar') private navBar?: ElementRef<HTMLElement>;
+  @ViewChild('drawer') private drawer?: MatSidenav;
+
+  private resizeObserver?: ResizeObserver;
+
+  constructor(private readonly zone: NgZone) {}
+
+  ngAfterViewInit() {
+    this.evaluateNavOverflow();
+    const element = this.navBar?.nativeElement;
+    if (element) {
+      this.resizeObserver = new ResizeObserver(() => {
+        this.zone.run(() => this.evaluateNavOverflow());
+      });
+      this.resizeObserver.observe(element);
+    }
+  }
+
+  ngOnDestroy() {
+    this.resizeObserver?.disconnect();
+  }
+
+  scrollTo(sectionId: string, closeDrawer = false) {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (closeDrawer && this.drawer?.opened) {
+      this.drawer.close();
     }
   }
 
@@ -72,5 +102,23 @@ export class AppComponent {
 
     offsets.sort((a, b) => a.top - b.top);
     this.activeSection = offsets[0]?.id ?? this.activeSection;
+  }
+
+  @HostListener('window:resize')
+  handleResize() {
+    this.evaluateNavOverflow();
+  }
+
+  private evaluateNavOverflow() {
+    const element = this.navBar?.nativeElement;
+    if (!element) {
+      this.navOverflow = false;
+      return;
+    }
+    const hasOverflow = element.scrollWidth - element.clientWidth > 2;
+    this.navOverflow = hasOverflow;
+    if (!hasOverflow) {
+      this.drawer?.close();
+    }
   }
 }

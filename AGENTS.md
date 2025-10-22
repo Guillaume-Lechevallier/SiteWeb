@@ -8,6 +8,8 @@
 - La barre d'outils principale conserve un offset de 16px et un border-radius : laisser cet espace supérieur pour éviter qu'elle soit collée au bord. Le contenu vit désormais dans `.toolbar-inner` (container centré) : respecter cette hiérarchie pour garder l'équilibre du sticky.
 - Sous les 720px de large, la barre d'outils devient défilable horizontalement : préserver cette approche pour garder la navigation mobile utilisable sans menu hamburger.
 - La barre d'outils repose sur une grille CSS (`brand` / `nav` / `cta`) encapsulée dans `.toolbar-inner`. Conserver ce découpage et le principe de nav scrollable.
+- La barre d'outils détecte désormais les débordements : conserver la logique `navOverflow` et le panneau latéral (`mat-sidenav`) qui prend le relais en cas de trop grand nombre de liens.
+- Le budget Angular `anyComponentStyle` est fixé à 8kb/14kb (warning/error) pour absorber la navigation enrichie : adapter en conséquence plutôt que de réduire brutalement les styles existants.
 - Le hero s'appuie sur `.hero-shell` (`copy` / `visual`) avec la liste `.hero-points` pour les messages clés : conserver ces blocs pour garder la structure responsive et éviter les régressions.
 - La section « Défis » a été retirée ; ne pas la réintroduire sans demande explicite.
 - La section « Expériences professionnelles » inclut un onglet C.A.E.N. Training rédigé sur un ton narratif (éviter les listes à puces).
