@@ -7,3 +7,4 @@
 - Les budgets Angular ont été ajustés pour tolérer l'interface riche. Ne pas descendre en dessous des nouvelles limites sans vérifier l'impact.
 - La barre d'outils principale conserve un offset de 16px et un border-radius : laisser cet espace supérieur pour éviter qu'elle soit collée au bord.
 - La section « Défis » a été retirée ; ne pas la réintroduire sans demande explicite.
+- La section « Expériences professionnelles » inclut un onglet C.A.E.N. Training rédigé sur un ton narratif (éviter les listes à puces).
