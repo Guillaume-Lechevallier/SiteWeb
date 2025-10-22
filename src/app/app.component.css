@@ -2,22 +2,32 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: clamp(32px, 6vw, 56px);
   padding-top: 16px;
 }
 
 .app-toolbar {
   position: sticky;
   top: 16px;
-  z-index: 10;
+  z-index: 40;
   display: block;
   margin-inline: clamp(12px, 4vw, 48px);
+  margin-bottom: clamp(24px, 6vw, 48px);
   padding: clamp(10px, 2vw, 14px) 0;
   border-radius: 24px;
   background: rgba(5, 8, 28, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(26px);
   box-shadow: 0 24px 60px rgba(5, 8, 28, 0.45);
+}
+
+@supports (gap: 1rem) {
+  .app-shell {
+    gap: clamp(32px, 6vw, 56px);
+  }
+
+  .app-toolbar {
+    margin-bottom: 0;
+  }
 }
 
 .toolbar-inner {
@@ -123,7 +133,7 @@
 .hero {
   position: relative;
   isolation: isolate;
-  padding: clamp(16px, 5vw, 48px) clamp(16px, 5vw, 40px) 0;
+  padding: clamp(28px, 7vw, 56px) clamp(16px, 5vw, 40px) 0;
 }
 
 .hero-shell {
