@@ -7,6 +7,7 @@ Ce dépôt contient le front-end Angular du portfolio de Guillaume Lechevallier 
 - Hero immersif avec navigation sticky permettant de parcourir chaque section en douceur.
 - Nouvelles mises en page pour les sections « À propos », « Compétences » et « Réalisations » avec des cartes responsives.
 - Section « Réalisations » enrichie du projet de détection automatique de varroas (YOLOv8, OpenCV, dataset annoté).
+- Section « Expériences professionnelles » actualisée avec l'onglet C.A.E.N. Training.
 - Formulaires de contact et d'interaction bot modernisés pour une lecture claire.
 - Palette sombre modernisée, effets de profondeur et typographie harmonisée.
 
