@@ -1,62 +1,75 @@
 <div class="app-shell">
   <mat-toolbar class="app-toolbar">
-    <div class="brand">
-      <img src="https://i.ibb.co/FKfDD6H/photo-cv.png" alt="Portrait de Guillaume" class="brand-photo" loading="lazy">
-      <div class="brand-copy">
-        <p class="brand-name">Guillaume Lechevallier</p>
-        <p class="brand-role">Développeur &amp; artisan de l'automatisation</p>
+    <div class="toolbar-inner">
+      <div class="brand">
+        <img src="https://i.ibb.co/FKfDD6H/photo-cv.png" alt="Portrait de Guillaume" class="brand-photo" loading="lazy">
+        <div class="brand-copy">
+          <p class="brand-name">Guillaume Lechevallier</p>
+          <p class="brand-role">Développeur &amp; artisan de l'automatisation</p>
+        </div>
       </div>
-    </div>
 
-    <nav class="toolbar-nav" aria-label="Navigation principale">
-      <button
-        mat-button
-        class="toolbar-link"
-        *ngFor="let section of sections"
-        [class.toolbar-link--active]="section.id === activeSection"
-        [matTooltip]="section.description"
-        (click)="scrollTo(section.id)"
-        type="button"
+      <nav class="toolbar-nav" aria-label="Navigation principale">
+        <button
+          mat-button
+          class="toolbar-link"
+          *ngFor="let section of sections"
+          [class.toolbar-link--active]="section.id === activeSection"
+          [matTooltip]="section.description"
+          (click)="scrollTo(section.id)"
+          type="button"
+        >
+          <span class="toolbar-link__label">{{ section.label }}</span>
+        </button>
+      </nav>
+
+      <a
+        class="cv-button"
+        mat-flat-button
+        color="primary"
+        [href]="cvUrl"
+        target="_blank"
+        rel="noopener"
+        matTooltip="Télécharger mon CV"
       >
-        <span class="toolbar-link__label">{{ section.label }}</span>
-      </button>
-    </nav>
-
-    <a
-      class="cv-button"
-      mat-flat-button
-      color="primary"
-      [href]="cvUrl"
-      target="_blank"
-      rel="noopener"
-      matTooltip="Télécharger mon CV"
-    >
-      <span class="icon icon-download" aria-hidden="true"></span>
-      <span>Mon CV</span>
-    </a>
+        <span class="icon icon-download" aria-hidden="true"></span>
+        <span>Mon CV</span>
+      </a>
+    </div>
   </mat-toolbar>
 
   <header class="hero">
-    <div class="hero-content">
-      <span class="chip">Toujours en quête de nouveaux défis</span>
-      <h1>Accélérez vos projets avec un passionné de solutions sur mesure</h1>
-      <p>
-        J'imagine, développe et déploie des expériences numériques fiables pour transformer des idées en produits concrets.
-        Entre automatisation, interfaces soignées et API performantes, je fais converger design et efficacité.
-      </p>
-      <div class="hero-actions">
-        <button mat-raised-button color="primary" type="button" (click)="scrollTo('contact')">
-          Me contacter
-        </button>
-        <button mat-stroked-button color="accent" type="button" (click)="scrollTo('projects')">
-          Voir mes réalisations
-        </button>
+    <div class="hero-shell">
+      <div class="hero-content">
+        <span class="chip hero-chip">Toujours en quête de nouveaux défis</span>
+        <h1 class="hero-title">Accélérez vos projets avec un passionné de solutions sur mesure</h1>
+        <p class="hero-description">
+          J'imagine, développe et déploie des expériences numériques fiables pour transformer des idées en produits concrets.
+          Entre automatisation, interfaces soignées et API performantes, je fais converger design et efficacité.
+        </p>
+
+        <ul class="hero-points" aria-label="Domaines d'intervention">
+          <li>Automatisation de processus et scripts robustes</li>
+          <li>Interfaces immersives et expériences utilisateurs mémorables</li>
+          <li>API performantes et intégrations sur mesure</li>
+        </ul>
+
+        <div class="hero-actions">
+          <button mat-raised-button color="primary" type="button" (click)="scrollTo('contact')">
+            Me contacter
+          </button>
+          <button mat-stroked-button color="accent" type="button" (click)="scrollTo('projects')">
+            Voir mes réalisations
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-orb hero-orb--primary"></div>
-      <div class="hero-orb hero-orb--accent"></div>
-      <div class="hero-grid"></div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-gradient"></div>
+        <div class="hero-orb hero-orb--primary"></div>
+        <div class="hero-orb hero-orb--accent"></div>
+        <div class="hero-grid"></div>
+      </div>
     </div>
   </header>
 
