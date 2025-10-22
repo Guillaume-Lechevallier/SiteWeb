@@ -11,4 +11,6 @@
 - Le hero s'appuie sur `.hero-shell` (`copy` / `visual`) avec la liste `.hero-points` pour les messages clés : conserver ces blocs pour garder la structure responsive et éviter les régressions.
 - La section « Défis » a été retirée ; ne pas la réintroduire sans demande explicite.
 - La section « Expériences professionnelles » inclut un onglet C.A.E.N. Training rédigé sur un ton narratif (éviter les listes à puces).
-- Pour éviter que le hero ne remonte sous la barre d'outils sur mobile, une marge basse sert de fallback quand `gap` n'est pas pris en charge : conserver la combinaison `margin-bottom` + `@supports (gap)` sur `.app-toolbar` / `.app-shell`.
+- Pour éviter que le hero ne remonte sous la barre d'outils sur mobile, une marge basse sert de fallback quand `gap` n'est pas pris en charge : conserver la combinaison `margin-bottom` + `@supports (gap)` sur `.app-toolbar` / `.app-shell` (les deux conservent désormais une marge non nulle).
+- Le header hero bénéficie d'un `padding-top` progressif et d'un `scroll-margin-top` pour passer sous la toolbar sticky : ne pas les retirer, ajuster de concert avec la marge de la toolbar.
+- Les media queries ≤960/560/420 resserrent typographies et espacements de `.toolbar-link` et imposent un `margin-top` supplémentaire sur le hero pour éviter que la puce « Toujours en quête… » ne chevauche la navigation : prolonger cette logique en cas d'évolution.
