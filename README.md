@@ -57,3 +57,7 @@ python main.py
 
 Le front est conçu pour être déployé sur Firebase Hosting. L'API Flask peut être hébergée sur un service compatible (PythonAnywhere, VM personnelle…).
 
+## Notes de maintenance
+
+- La barre d'outils sticky combine une marge basse et une gestion via `gap` conditionnelle pour éviter que le hero ne chevauche la navigation sur mobile. Conserver cette approche pour préserver le comportement responsive.
+
