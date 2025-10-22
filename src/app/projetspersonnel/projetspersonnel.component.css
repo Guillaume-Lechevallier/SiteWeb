@@ -45,3 +45,17 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
   justify-content: center;
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  .project-tab {
+    justify-items: stretch;
+  }
+
+  .project-text {
+    font-size: 15px;
+  }
+
+  .project-caption {
+    text-align: center;
+  }
+}

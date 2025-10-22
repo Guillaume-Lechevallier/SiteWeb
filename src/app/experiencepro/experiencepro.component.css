@@ -24,8 +24,15 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
 }
 
 .imageentreprise {
-  width: min(60vh, 320px);
+  width: min(100%, 320px);
   border-radius: 18px;
   box-shadow: 0 24px 48px rgba(5, 8, 28, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 600px) {
+  .explication {
+    font-size: 15px;
+    padding-inline: 4px;
+  }
 }
