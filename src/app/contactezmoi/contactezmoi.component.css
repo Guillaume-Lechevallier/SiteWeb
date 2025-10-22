@@ -46,3 +46,18 @@ button[mat-raised-button] {
   max-width: 640px;
   margin: 0;
 }
+
+@media (max-width: 600px) {
+  .contact-form {
+    width: 100%;
+  }
+
+  button[mat-raised-button] {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .contact-note {
+    max-width: 100%;
+  }
+}

@@ -244,3 +244,87 @@ main {
     padding-top: 48px;
   }
 }
+
+@media (max-width: 720px) {
+  .app-toolbar {
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .brand {
+    min-width: auto;
+  }
+
+  .toolbar-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .toolbar-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cv-button {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 18px;
+  }
+
+  .hero {
+    padding: 48px 20px 32px;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+  }
+
+  .hero-content p {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-visual {
+    min-height: 220px;
+  }
+
+  .footer-content {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions button {
+    width: 100%;
+  }
+
+  .footer-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-link {
+    width: 100%;
+    justify-content: center;
+  }
+}

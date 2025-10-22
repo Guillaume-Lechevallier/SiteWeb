@@ -10,6 +10,7 @@ Ce dépôt contient le front-end Angular du portfolio de Guillaume Lechevallier 
 - Section « Expériences professionnelles » actualisée avec l'onglet C.A.E.N. Training.
 - Formulaires de contact et d'interaction bot modernisés pour une lecture claire.
 - Palette sombre modernisée, effets de profondeur et typographie harmonisée.
+- Mise en page responsive : barre d'outils scrollable, CTA adaptatifs et grilles fluides sur mobile.
 
 ## Prérequis
 
