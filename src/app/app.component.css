@@ -11,7 +11,7 @@
   z-index: 40;
   display: block;
   margin-inline: clamp(12px, 4vw, 48px);
-  margin-bottom: clamp(24px, 6vw, 48px);
+  margin-bottom: clamp(28px, 7vw, 64px);
   padding: clamp(10px, 2vw, 14px) 0;
   border-radius: 24px;
   background: rgba(5, 8, 28, 0.78);
@@ -26,7 +26,7 @@
   }
 
   .app-toolbar {
-    margin-bottom: 0;
+    margin-bottom: clamp(20px, 5vw, 52px);
   }
 }
 
@@ -133,7 +133,9 @@
 .hero {
   position: relative;
   isolation: isolate;
-  padding: clamp(28px, 7vw, 56px) clamp(16px, 5vw, 40px) 0;
+  margin-top: clamp(8px, 2.4vw, 24px);
+  padding: clamp(40px, 8vw, 72px) clamp(16px, 5vw, 40px) 0;
+  scroll-margin-top: clamp(120px, 18vw, 160px);
 }
 
 .hero-shell {
@@ -154,6 +156,7 @@
 
 .hero-chip {
   justify-self: flex-start;
+  margin-top: clamp(12px, 2.6vw, 24px);
 }
 
 .hero-title {
@@ -358,6 +361,15 @@ main {
     width: min(100%, 320px);
     justify-content: center;
   }
+
+  .hero {
+    margin-top: clamp(20px, 7vw, 40px);
+    padding-top: clamp(52px, 14vw, 96px);
+  }
+
+  .hero-chip {
+    margin-top: clamp(16px, 5vw, 28px);
+  }
 }
 
 @media (max-width: 720px) {
@@ -369,7 +381,8 @@ main {
   .toolbar-nav {
     justify-content: flex-start;
     background: rgba(255, 255, 255, 0.02);
-    padding-inline: 6px;
+    padding-inline: 10px;
+    padding-block: 6px;
   }
 
   .hero {
@@ -400,6 +413,28 @@ main {
     display: none;
   }
 
+  .toolbar-nav {
+    gap: 10px;
+  }
+
+  .toolbar-link {
+    font-size: 12px;
+    padding-inline: 12px;
+  }
+
+  .hero {
+    margin-top: clamp(24px, 10vw, 44px);
+    padding-top: clamp(60px, 18vw, 104px);
+  }
+
+  .hero-chip {
+    margin-top: clamp(18px, 7vw, 32px);
+  }
+
+  .hero-title {
+    max-width: 22ch;
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -426,11 +461,31 @@ main {
 @media (max-width: 420px) {
   .toolbar-nav {
     gap: 6px;
+    padding-inline: 8px;
   }
 
   .toolbar-link {
-    font-size: 12px;
-    padding-inline: 12px;
+    font-size: 11px;
+    padding-inline: 10px;
+    padding-block: 6px;
+  }
+
+  .brand-photo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+  }
+
+  .cv-button {
+    width: 100%;
+  }
+
+  .hero {
+    margin-top: clamp(28px, 12vw, 52px);
+    padding-top: clamp(66px, 22vw, 112px);
   }
 
   .hero-title {

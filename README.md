@@ -59,5 +59,7 @@ Le front est conçu pour être déployé sur Firebase Hosting. L'API Flask peut 
 
 ## Notes de maintenance
 
-- La barre d'outils sticky combine une marge basse et une gestion via `gap` conditionnelle pour éviter que le hero ne chevauche la navigation sur mobile. Conserver cette approche pour préserver le comportement responsive.
+- La barre d'outils sticky combine désormais une marge basse (y compris lorsque `gap` est supporté) et une gestion via `gap` conditionnelle pour éviter que le hero ne chevauche la navigation sur mobile.
+- Le header hero dispose d'un `padding-top` progressif et d'un `scroll-margin-top` pour rester lisible sous la toolbar sticky, même lorsque la navigation se replie en colonne.
+- Les media queries ≤960px/560px/420px ajustent polices et espacements de la navigation pour préserver la lisibilité sans menu hamburger : harmoniser toute nouvelle variation avec ces règles.
 
