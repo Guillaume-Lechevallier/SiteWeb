@@ -11,19 +11,24 @@
   z-index: 10;
   backdrop-filter: blur(24px);
   background: rgba(5, 8, 28, 0.72);
-  padding: 0 clamp(16px, 3vw, 48px);
+  padding: clamp(10px, 2vw, 16px) clamp(16px, 3vw, 48px);
   margin-inline: clamp(12px, 3vw, 32px);
   border-radius: 18px;
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: 'brand nav cta';
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .brand {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  gap: 18px;
-  min-width: 240px;
+  gap: clamp(12px, 2vw, 18px);
+  min-width: 0;
+  grid-area: brand;
 }
 
 .brand-photo {
@@ -32,6 +37,7 @@
   border-radius: 24px;
   object-fit: cover;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  justify-self: center;
 }
 
 .brand-name {
@@ -45,6 +51,12 @@
   margin-top: 4px;
 }
 
+.brand-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
 .toolbar-nav {
   display: flex;
   align-items: center;
@@ -52,6 +64,8 @@
   gap: 8px;
   justify-content: center;
   flex: 1;
+  min-width: 0;
+  grid-area: nav;
 }
 
 .toolbar-link {
@@ -60,6 +74,7 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: background-color 200ms ease, color 200ms ease;
+  white-space: nowrap;
 }
 
 .toolbar-link--active,
@@ -76,6 +91,7 @@
   font-weight: 600;
   letter-spacing: 0.03em;
   padding-inline: 20px;
+  grid-area: cta;
 }
 
 .icon {
@@ -222,22 +238,34 @@ main {
 
 @media (max-width: 960px) {
   .app-toolbar {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-block: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'brand'
+      'nav'
+      'cta';
+    justify-items: center;
+    padding: clamp(16px, 4vw, 20px) clamp(16px, 4vw, 32px);
   }
 
   .brand {
-    justify-content: center;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .brand-name {
+    font-size: clamp(18px, 4vw, 22px);
   }
 
   .toolbar-nav {
-    order: 3;
+    width: 100%;
     justify-content: center;
   }
 
   .cv-button {
-    order: 2;
+    justify-self: stretch;
+    width: min(100%, 320px);
+    justify-content: center;
   }
 
   .hero {
@@ -249,10 +277,12 @@ main {
   .app-toolbar {
     align-items: stretch;
     gap: 16px;
+    justify-items: stretch;
   }
 
   .brand {
     min-width: auto;
+    gap: 12px;
   }
 
   .toolbar-nav {
@@ -261,10 +291,15 @@ main {
     justify-content: flex-start;
     padding-bottom: 4px;
     scrollbar-width: none;
+    width: 100%;
   }
 
   .toolbar-nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .toolbar-link {
+    flex: 0 0 auto;
   }
 
   .cv-button {
