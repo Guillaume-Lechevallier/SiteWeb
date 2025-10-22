@@ -7,5 +7,6 @@
 - Les budgets Angular ont été ajustés pour tolérer l'interface riche. Ne pas descendre en dessous des nouvelles limites sans vérifier l'impact.
 - La barre d'outils principale conserve un offset de 16px et un border-radius : laisser cet espace supérieur pour éviter qu'elle soit collée au bord.
 - Sous les 720px de large, la barre d'outils devient défilable horizontalement : préserver cette approche pour garder la navigation mobile utilisable.
+- La barre d'outils repose désormais sur une grille CSS (`brand` / `nav` / `cta`). Conserver ce découpage pour éviter des régressions responsive.
 - La section « Défis » a été retirée ; ne pas la réintroduire sans demande explicite.
 - La section « Expériences professionnelles » inclut un onglet C.A.E.N. Training rédigé sur un ton narratif (éviter les listes à puces).

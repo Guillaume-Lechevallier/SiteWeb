@@ -11,6 +11,7 @@ Ce dépôt contient le front-end Angular du portfolio de Guillaume Lechevallier 
 - Formulaires de contact et d'interaction bot modernisés pour une lecture claire.
 - Palette sombre modernisée, effets de profondeur et typographie harmonisée.
 - Mise en page responsive : barre d'outils scrollable, CTA adaptatifs et grilles fluides sur mobile.
+- Barre de navigation principale repensée avec une grille adaptive pour rester lisible et accessible de l'ultra-wide au smartphone.
 
 ## Prérequis
 
