@@ -12,6 +12,7 @@ Ce dépôt contient le front-end Angular du portfolio de Guillaume Lechevallier 
 - Palette sombre modernisée, effets de profondeur et typographie harmonisée.
 - Mise en page responsive : barre d'outils scrollable encapsulée dans une coque sticky, CTA adaptatifs et grilles fluides sur mobile.
 - Barre de navigation principale repensée avec une grille adaptive, centrée dans un container et réactive du très grand écran au smartphone.
+- Barre de navigation adaptative détectant les débordements et proposant automatiquement un panneau latéral accessible.
 
 ## Prérequis
 
@@ -49,7 +50,7 @@ python main.py
 
 ## Scripts utiles
 
-- `npm run build` : build de production de l'interface.
+- `npm run build` : build de production de l'interface, incluant désormais la navigation responsive avec détection d'encombrement et panneau latéral déclenchable.
 - `ng serve` : serveur de développement (non exécuté ici mais disponible).
 - `python APIpythonmail/main.py` : lance l'API Flask (nécessite les dépendances Python installées).
 
