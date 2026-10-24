@@ -574,3 +574,207 @@ main {
     font-size: clamp(30px, 12vw, 40px);
   }
 }
+
+/* Mise en page CV : plus sobre, plus hiérarchisée, tout en conservant la grille animée. */
+.app-toolbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(16, 40, 79, 0.1);
+  box-shadow: 0 16px 38px rgba(16, 40, 79, 0.12);
+}
+
+.hero {
+  padding-top: clamp(28px, 5vw, 54px);
+}
+
+.hero-shell {
+  align-items: stretch;
+  gap: clamp(28px, 5vw, 68px);
+}
+
+.hero-content {
+  align-content: center;
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.hero-title {
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.hero-role {
+  color: var(--color-primary);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 600;
+  margin: -8px 0 0;
+}
+
+.hero-description {
+  max-width: 620px;
+  font-size: clamp(16px, 1.8vw, 18px);
+}
+
+.hero-points {
+  gap: 8px;
+  width: min(100%, 620px);
+}
+
+.hero-points li {
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(16, 40, 79, 0.06);
+}
+
+.hero-points li::before {
+  content: '✓';
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero-points strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.cv-profile-card {
+  min-height: 0;
+  overflow: hidden;
+  align-self: center;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(31, 74, 168, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 60px rgba(16, 40, 79, 0.16);
+  color: var(--color-text);
+}
+
+.cv-profile-card__topline,
+.cv-profile-card__identity,
+.cv-profile-card__facts {
+  position: relative;
+  z-index: 1;
+}
+
+.cv-profile-card__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(16, 40, 79, 0.12);
+}
+
+.cv-profile-card__label {
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cv-profile-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #28734a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cv-profile-card__status span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #39a96b;
+  box-shadow: 0 0 0 4px rgba(57, 169, 107, 0.14);
+}
+
+.cv-profile-card__identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 28px 0;
+}
+
+.cv-profile-card__identity img {
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 22px rgba(16, 40, 79, 0.18);
+}
+
+.cv-profile-card__name,
+.cv-profile-card__location {
+  margin: 0;
+}
+
+.cv-profile-card__name {
+  color: var(--color-text);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+}
+
+.cv-profile-card__location {
+  margin-top: 6px;
+  color: var(--color-muted);
+}
+
+.cv-profile-card__facts {
+  display: grid;
+  gap: 14px;
+}
+
+.cv-profile-card__facts div {
+  display: grid;
+  gap: 3px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(16, 40, 79, 0.08);
+}
+
+.cv-profile-card__facts span {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.cv-profile-card__facts strong {
+  font-size: 15px;
+}
+
+.cv-profile-card__accent {
+  position: absolute;
+  right: -90px;
+  bottom: -100px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(235, 22, 138, 0.26), rgba(235, 22, 138, 0));
+}
+
+@media (max-width: 1100px) {
+  .cv-profile-card {
+    width: min(100%, 620px);
+  }
+}
+
+@media (max-width: 560px) {
+  .cv-profile-card {
+    padding: 22px;
+  }
+
+  .cv-profile-card__topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cv-profile-card__identity img {
+    width: 72px;
+    height: 72px;
+  }
+}
