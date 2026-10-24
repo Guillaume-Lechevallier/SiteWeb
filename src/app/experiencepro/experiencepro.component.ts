@@ -23,6 +23,11 @@ interface ExperienceItem {
   styleUrl: './experiencepro.component.css'
 })
 export class ExperienceproComponent {
+  markImageUnavailable(event: Event) {
+    const image = event.target as HTMLImageElement;
+    image.parentElement?.classList.add('image-failed');
+  }
+
   readonly experiences: ExperienceItem[] = [
     {
       period: 'Depuis 2024', company: 'C.A.E.N. Training', location: 'Paris',

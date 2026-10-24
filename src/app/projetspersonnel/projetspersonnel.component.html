@@ -31,7 +31,10 @@
       </section>
 
       <div class="project-visual" *ngIf="project.image">
-        <img class="project-image" [src]="project.image" [alt]="project.imageAlt" loading="lazy" decoding="async">
+        <div class="project-image-wrap">
+          <img class="project-image" [src]="project.image" [alt]="project.imageAlt" loading="lazy" decoding="async" (error)="markImageUnavailable($event)">
+          <span class="project-image-fallback" aria-hidden="true">{{ project.name }}</span>
+        </div>
         <p class="project-caption" *ngIf="project.caption">{{ project.caption }}</p>
       </div>
       <p class="project-link-note" *ngIf="project.linkLabel">{{ project.linkLabel }}</p>

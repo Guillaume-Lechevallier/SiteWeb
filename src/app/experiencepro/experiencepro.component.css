@@ -31,7 +31,7 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
 .experience-period,
 .experience-company {
   margin: 0;
-  color: rgba(244, 247, 251, 0.7);
+  color: var(--color-muted);
 }
 
 .experience-intro h3 {
@@ -48,7 +48,7 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
 .experience-card h4 {
   margin: 0 0 12px;
   font-size: 17px;
-  color: #f4f7fb;
+  color: var(--color-text);
 }
 
 .experience-card ul {
@@ -75,15 +75,44 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
   border: 1px solid rgba(235, 22, 138, 0.35);
   border-radius: 999px;
   padding: 6px 11px;
-  color: #f4f7fb;
+  color: #b80e6b;
   background: rgba(235, 22, 138, 0.1);
   font-size: 13px;
 }
 
 .not-documented {
   margin: 0;
-  color: rgba(244, 247, 251, 0.6);
+  color: var(--color-muted);
   font-style: italic;
+}
+
+.experience-image-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: min(100%, 320px);
+  min-height: 80px;
+}
+
+.experience-image-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid rgba(31, 74, 168, 0.12);
+  border-radius: 18px;
+  color: var(--color-primary);
+  background: rgba(31, 74, 168, 0.08);
+  font-weight: 700;
+}
+
+.experience-image-wrap.image-failed .experience-image-fallback {
+  display: flex;
+}
+
+.experience-image-wrap.image-failed .imageentreprise {
+  display: none;
 }
 
 .experience-visual {

@@ -25,6 +25,11 @@ interface ProjectItem {
   styleUrl: './projetspersonnel.component.css'
 })
 export class ProjetspersonnelComponent {
+  markImageUnavailable(event: Event) {
+    const image = event.target as HTMLImageElement;
+    image.parentElement?.classList.add('image-failed');
+  }
+
   readonly projects: ProjectItem[] = [
     {
       name: 'Détection varroas (IA)',

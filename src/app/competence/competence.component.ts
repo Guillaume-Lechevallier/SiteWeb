@@ -21,6 +21,11 @@ interface SkillCategory {
   styleUrl: './competence.component.css'
 })
 export class CompetenceComponent {
+  markImageUnavailable(event: Event) {
+    const image = event.target as HTMLImageElement;
+    image.parentElement?.classList.add('image-failed');
+  }
+
   readonly categories: SkillCategory[] = [
     {
       name: 'Développement Front-End',

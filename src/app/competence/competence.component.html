@@ -5,7 +5,10 @@
   </div>
   <div class="skills-grid">
     <article class="skill-card" *ngFor="let skill of category.skills">
-      <img class="skill-logo" [src]="skill.logo" [alt]="skill.name" loading="lazy" decoding="async">
+      <div class="skill-logo-wrap">
+        <img class="skill-logo" [src]="skill.logo" [alt]="skill.name" loading="lazy" decoding="async" (error)="markImageUnavailable($event)">
+        <span class="skill-logo-fallback" aria-hidden="true">{{ skill.name.slice(0, 2) }}</span>
+      </div>
       <div class="skill-copy">
         <h4>{{ skill.name }}</h4>
         <p>{{ skill.description }}</p>

@@ -33,7 +33,10 @@
       </section>
 
       <div class="experience-visual" *ngIf="experience.image">
-        <img class="imageentreprise" [src]="experience.image" [alt]="experience.imageAlt" loading="lazy" decoding="async">
+        <div class="experience-image-wrap">
+          <img class="imageentreprise" [src]="experience.image" [alt]="experience.imageAlt" loading="lazy" decoding="async" (error)="markImageUnavailable($event)">
+          <span class="experience-image-fallback" aria-hidden="true">{{ experience.company }}</span>
+        </div>
       </div>
     </article>
   </mat-tab>
