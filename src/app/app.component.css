@@ -582,6 +582,50 @@ main {
   box-shadow: 0 16px 38px rgba(16, 40, 79, 0.12);
 }
 
+.toolbar-inner {
+  grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.35fr) auto;
+  gap: 14px;
+  padding-inline: clamp(14px, 2.8vw, 30px);
+}
+
+.brand {
+  gap: 12px;
+}
+
+.brand-photo {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+}
+
+.brand-name {
+  font-size: clamp(15px, 1.8vw, 18px);
+  white-space: nowrap;
+}
+
+.brand-role {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.toolbar-nav {
+  justify-content: flex-start;
+  gap: 2px;
+  padding: 3px;
+}
+
+.toolbar-link {
+  min-width: auto !important;
+  padding-inline: 10px;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.cv-button {
+  padding-inline: 18px;
+  white-space: nowrap;
+}
+
 .hero {
   padding-top: clamp(28px, 5vw, 54px);
 }
