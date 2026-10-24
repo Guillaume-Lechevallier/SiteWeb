@@ -42,7 +42,7 @@ button[mat-raised-button] {
 
 .contact-note {
   font-size: 14px;
-  color: rgba(244, 247, 251, 0.6);
+  color: var(--color-muted);
   max-width: 640px;
   margin: 0;
 }

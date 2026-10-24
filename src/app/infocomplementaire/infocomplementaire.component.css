@@ -5,11 +5,11 @@
 }
 
 .info-card {
-  background: rgba(5, 8, 28, 0.45);
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 22px;
   padding: clamp(20px, 3vw, 28px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 22px 44px rgba(5, 8, 28, 0.35);
+  border: 1px solid rgba(31, 74, 168, 0.12);
+  box-shadow: 0 22px 44px rgba(16, 40, 79, 0.1);
   display: grid;
   gap: 18px;
 }
@@ -21,13 +21,14 @@
 
 .info-card h4 {
   font-size: 16px;
-  color: rgba(244, 247, 251, 0.7);
+  color: var(--color-text);
   margin: 0;
 }
 
 .info-permit {
   margin: 0;
   font-size: 16px;
+  color: var(--color-muted);
 }
 
 .hobby-list {
