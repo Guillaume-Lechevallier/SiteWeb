@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
-import { NgFor } from '@angular/common';
+import { isPlatformBrowser, NgFor } from '@angular/common';
 import { ApropodemoiComponent } from './apropodemoi/apropodemoi.component';
 import { ExperienceproComponent } from './experiencepro/experiencepro.component';
 import { FormationscolaireComponent } from './formationscolaire/formationscolaire.component';
@@ -51,6 +51,7 @@ export class AppComponent implements AfterViewInit {
   ];
 
   activeSection = this.sections[0].id;
+  private readonly isBrowser: boolean;
   private lastGridInput = 0;
   private readonly gridInputCapture = (event: MouseEvent) => {
     if (event.button !== 0) {
@@ -73,7 +74,15 @@ export class AppComponent implements AfterViewInit {
     this.handleGridClick(event);
   };
 
+  constructor(@Inject(PLATFORM_ID) platformId: object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
   ngAfterViewInit() {
+    if (!this.isBrowser) {
+      return;
+    }
+
     window.addEventListener('pointerdown', this.gridInputCapture, true);
     window.addEventListener('pointerup', this.gridInputCapture, true);
     window.addEventListener('mousedown', this.gridInputCapture, true);
@@ -92,6 +101,10 @@ export class AppComponent implements AfterViewInit {
   }
 
   handleGridClick(event: MouseEvent) {
+    if (!this.isBrowser) {
+      return;
+    }
+
     const marketingGrid = (window as Window & {
       ShopAlerteMarketingGrid?: { addPoint?: (clickEvent: MouseEvent) => void };
     }).ShopAlerteMarketingGrid;
