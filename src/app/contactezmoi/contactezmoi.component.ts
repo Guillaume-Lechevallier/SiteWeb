@@ -17,22 +17,27 @@ export class ContactezmoiComponent {
   value1 = '';
   value2 = '';
   value3 = '';
-  newvalue3 = '';
   textebouton = 'Envoyer';
   statusMessage = '';
 
   constructor(private http: HttpClient) {}
 
+  private get apiUrl(): string {
+    return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'http://127.0.0.1:5000/sendmail'
+      : 'https://guillaumelechevallier.pythonanywhere.com/sendmail';
+  }
+
   sendRequest() {
-    this.newvalue3 = btoa(this.value3 ?? '');
-    const headers = new HttpHeaders({
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = {
       phone: this.value1 ?? '',
-      contenu: this.newvalue3 ?? '',
-      mail: this.value2 ?? ''
-    });
+      message: this.value3 ?? '',
+      email: this.value2 ?? ''
+    };
 
     this.http
-      .get('https://guillaumelechevallier.pythonanywhere.com/sendmail', { headers })
+      .post(this.apiUrl, body, { headers })
       .subscribe({
         next: (response: any) => {
           response = JSON.stringify(response);

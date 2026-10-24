@@ -39,6 +39,12 @@ pip install -r requirements.txt
 python main.py
 ```
 
+Copiez `APIpythonmail/.env.example` comme modèle de configuration et définissez
+les variables dans l'environnement avant de lancer l'API. Utilisez un mot de
+passe d'application SMTP, jamais le mot de passe principal de votre boîte mail.
+En local, le frontend utilise automatiquement `http://127.0.0.1:5000/sendmail`.
+Sur le site hébergé, il conserve l'URL de l'API PythonAnywhere.
+
 > **Remarque :** L'environnement de travail actuel ne dispose pas d'accès réseau sortant ; l'installation de `Flask` / `Flask-Cors` ne peut donc pas être réalisée automatiquement dans ce contexte. Les instructions ci-dessus restent valables sur une machine avec un accès internet.
 
 ## Structure des projets

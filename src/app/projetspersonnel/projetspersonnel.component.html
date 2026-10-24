@@ -86,4 +86,105 @@
       </div>
     </div>
   </mat-tab>
+
+  <mat-tab label="Petit Pas">
+    <div class="project-tab">
+      <p class="project-text">
+        Petit Pas est une application web mobile-first conçue comme un compagnon de motivation au quotidien. Elle transforme des
+        missions et des habitudes en un parcours ludique : chaque profil dispose de ses propres missions, gagne des points et de
+        l'expérience, puis peut les utiliser dans une boutique de récompenses.
+      </p>
+      <p class="project-text">
+        L'application gère plusieurs profils indépendants, des missions quotidiennes et surprises, des catégories spéciales, la
+        progression, l'historique des actions et les demandes de récompenses. Le backend Node.js/Express s'appuie sur PostgreSQL,
+        avec une interface PWA adaptée aux tablettes et aux navigateurs anciens.
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="ShopAlerte">
+    <div class="project-tab">
+      <p class="project-text">
+        ShopAlerte est une plateforme de fidélité numérique destinée aux commerçants. Elle remplace la carte papier par des cartes
+        accessibles depuis Apple Wallet ou Google Wallet, avec des QR codes, des scans et un système de points.
+      </p>
+      <p class="project-text">
+        La solution comprend la gestion des clients, cartes, points, notifications et comptes commerçants. Les droits sont séparés
+        entre administrateurs, gestionnaires et commerçants afin que chacun dispose uniquement des outils nécessaires à son activité.
+        Le projet associe frontend Angular, backend Python, base de données et services Docker.
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Quizzzzz">
+    <div class="project-tab">
+      <p class="project-text">
+        Quizzzzz est un service web public rattaché à ShopAlerte, accessible depuis un sous-domaine dédié. Il fournit l'interface
+        de quiz tout en étant séparé du cœur de gestion des commerçants.
+      </p>
+      <p class="project-text">
+        J'ai également travaillé sur sa publication : service local, reverse proxy Caddy, HTTPS automatique avec Let’s Encrypt,
+        compression des réponses et vérification de l'accès public. Cette architecture permet de faire évoluer le service sans
+        exposer directement son conteneur interne.
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Ren’Py Live Translator">
+    <div class="project-tab">
+      <p class="project-text">
+        Ren’Py Live Translator est un outil de traduction locale pour les jeux narratifs Ren’Py. Il intercepte les textes anglais
+        au moment où le jeu les affiche et les remplace progressivement par leur version française.
+      </p>
+      <p class="project-text">
+        Les traductions déjà connues apparaissent immédiatement grâce à un cache JSON partageable. Les nouveaux textes sont envoyés
+        en arrière-plan à Ollama et TranslateGemma, sans bloquer le jeu. Les balises, variables et corrections manuelles sont
+        conservées afin de respecter le contexte et la mise en forme des dialogues.
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="DISBOT / Luna">
+    <div class="project-tab">
+      <p class="project-text">
+        DISBOT, incarné par Luna, est un bot Discord Python qui accompagne les parties Archipelago. Il surveille les journaux des
+        rooms, détecte les connexions, checks, objets reçus et objectifs terminés, puis publie des messages compréhensibles dans
+        un salon Discord.
+      </p>
+      <p class="project-text">
+        Le bot crée aussi des annonces de rooms, fournit des liens de suivi, reformule les objets avec une traduction et une touche
+        d'humour, et propose la commande <code>/apcheck</code> pour connaître les checks restants d'un joueur. Il fonctionne avec
+        Docker et conserve son état de lecture pour éviter les doublons.
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Archipelago / Risk of Rain 2">
+    <div class="project-tab">
+      <p class="project-text">
+        Il s'agit d'une intégration entre Archipelago et Risk of Rain 2 sous la forme d'un mod BepInEx/Thunderstore. Le mod permet
+        à plusieurs jeux et joueurs de partager une progression : les objets reçus, les checks et certains objectifs sont pilotés
+        par la room Archipelago.
+      </p>
+      <p class="project-text">
+        Le projet comprend un client de connexion, la gestion des items et des checks, l'affichage de la progression dans le jeu,
+        des handlers pour les stages, les shrines et les portails, ainsi que des adaptations spécifiques aux règles de génération.
+        Le mod doit rester aligné avec la version du jeu et du profil Thunderstore utilisés.
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="RustDesk">
+    <div class="project-tab">
+      <p class="project-text">
+        RustDesk regroupe ici les outils d'administration et de dépannage d'un accès distant entre ordinateurs. Le travail porte
+        sur la configuration du client, les serveurs d'identification et de relais, la connexion directe et la compatibilité avec
+        le réseau local, le NAT et les services Windows.
+      </p>
+      <p class="project-text">
+        L'objectif est de rendre la prise en main à distance fiable tout en distinguant correctement les adresses locales et
+        publiques, en conservant une procédure réversible et en évitant de divulguer ou de réutiliser des mots de passe sensibles.
+      </p>
+    </div>
+  </mat-tab>
 </mat-tab-group>

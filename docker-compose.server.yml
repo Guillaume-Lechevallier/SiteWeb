@@ -1,0 +1,9 @@
+services:
+  cv-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lechevallier_cv_frontend
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4300:80"

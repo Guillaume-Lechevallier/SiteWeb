@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">C.A.E.N. Training</title>
+  <desc id="desc">Identité visuelle C.A.E.N. Training Formations</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10284f"/>
+      <stop offset="1" stop-color="#1f4aa8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#eb168a"/>
+      <stop offset="1" stop-color="#ff6baf"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="34" fill="url(#background)"/>
+  <circle cx="760" cy="80" r="170" fill="#ffffff" opacity=".08"/>
+  <circle cx="180" cy="470" r="210" fill="#eb168a" opacity=".12"/>
+  <path d="M120 335c80-120 165-120 245 0s165 120 245 0" fill="none" stroke="url(#accent)" stroke-width="18" stroke-linecap="round" opacity=".9"/>
+  <text x="120" y="210" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700" letter-spacing="5">C.A.E.N.</text>
+  <text x="126" y="285" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" letter-spacing="8">TRAINING</text>
+  <text x="126" y="425" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="500" letter-spacing="4" opacity=".88">FORMATIONS · SPORT · ENTREPRISE</text>
+</svg>

@@ -1,191 +1,177 @@
-from flask import Flask, request
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from flask_cors import CORS, cross_origin
-import base64
+"""API Flask du formulaire de contact du portfolio.
 
-
-app = Flask(__name__)
-CORS(app)
-def sendmailtome(who,contenumail, tel):
-    print("me")
-    # Définissez les informations de base
-    expediteur = 'guillaumelechevalliercv@gmail.com'
-    mot_de_passe = 'exemplemotdepasse'
-    destinataire = 'moilechevallier@gmail.com'
-    sujet = "on t'as contacté par mail !"
-
-    # Écrivez votre message HTML ici
-    html = """\
-    <html>
-      <head></head>
-      <body>
-        <h2>Bonjour Guillaume !</h2>
-        <div><h1>"""+who+"""</h1><p>T'as envoyé un message</p></div><br><br>
-        <div><h1>"""+tel+"""</h1><p>Est son numéro de téléphone</p></div><br><br>
-        <p>C'est celui ci :</p>
-        <h2>"""+contenumail+"""
-        </h2>
-        <p>le mail à été envoyé à l'instant, et de son coté, la personne aussi à reçu un mail de confirmation comme quoi tu as reçu un mail</p>
-      </body>
-    </html>
-    """
-
-    # Créez un message MIME
-    message = MIMEMultipart()
-    message['From'] = expediteur
-    message['To'] = destinataire
-    message['Subject'] = sujet
-
-    # Attachez le corps HTML au message
-    message.attach(MIMEText(html, 'html'))
-
-    # Connectez-vous au serveur SMTP et envoyez l'email
-    try:
-        # Créez une session SMTP
-        session = smtplib.SMTP('smtp.gmail.com', 587)  # Remplacez par l'adresse du serveur SMTP et le port
-        session.starttls()  # Sécurisez la connexion
-        session.login(expediteur, mot_de_passe)
-
-        # Envoyez l'email
-        session.sendmail(expediteur, destinataire, message.as_string())
-        print("Email envoyé avec succès!")
-    except Exception as e:
-        print(f"Erreur lors de l'envoi de l'email: {e}")
-    finally:
-        session.quit()
-
-def sendmailtohim(destinataire,contenumail,numerotel):
-    print("him")
-    # Définissez les informations de base
-    expediteur = 'guillaumelechevalliercv@gmail.com'
-    mot_de_passe = 'g b a e x v v i s ob e j u r y'
-    destinataire = destinataire
-    sujet = "J'ai bien reçu votre demande !"
-    if len(numerotel) == 0:
-        phone = """<p class="explication">Vous n'avez pas renseigné de numéro de téléphone.</p><br><p class="explication">Si c'est parce que vous avez oublié, je vous invite à me renvoyer une demande</p><br>
+Les paramètres SMTP sont fournis par variables d'environnement. Aucun secret ne
+doit être enregistré dans le dépôt.
 """
-    else:
-        phone = """<p class="explication">Juste pour confirmer afin que je puisse vous recontacter, <strong>"""+numerotel+"""</strong> est votre numéro de téléphone.</p><br><p class="explication">Si ce n'est pas le cas, je vous invite à me renvoyer une demande</p><br>"""
 
-    # Écrivez votre message HTML ici
-    html = """\
-    <html>
-      <head><style>
-  body { }
-.titre{
-  color: white;
-  font-size: 200%;
-  margin-left: 0 2%;
-}
-.explication{
-  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 2%;
-  width: 80%;
-  max-width: 80%;
-}
-.signature{  font-family: Roboto, Helvetica Neue, sans-serif;
-  font-size: 120%;
-  color:white;
-  margin: 0 2%;
-  width: 80%;
-  max-width: 80%;
-  text-align:right;}
+from __future__ import annotations
 
-.allall{margin: 0 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #CCCCCC}
-.all{
-  margin: 0 10%; font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: linear-gradient(to bottom right, #0d1642, #01A5F6) fixed no-repeat padding-box;
-}
-</style></head>
-<body>
-<div class="allall">
-<div class="all">
-<br>
-<p class="explication">Bonjour</p><br>
-<p class="explication">J'ai bien reçu votre demande et je vous remercie pour l'interet que vous me portez.</p>
-<p class="explication">Je reviendrai vers vous au plus vite dans le cas où cela se rapporterait à une demande d'embauche.</p>"""+phone+"""
-<p class="explication">En attendant, je vous souhaite une bonne journée !</p><br>
-<p class="signature">Lechevallier Guillaume</p><br>
-  </div>
-  </div>
-</body>
+import base64
+import binascii
+import html
+import logging
+import os
+import re
+import smtplib
+from email.message import EmailMessage
+from typing import Any
+
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+from dotenv import load_dotenv
 
 
-    </html>
+load_dotenv()
+app = Flask(__name__)
+CORS(app, resources={r"/sendmail": {"origins": "*"}})
+
+logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))
+logger = logging.getLogger(__name__)
+
+EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
+MAX_MESSAGE_LENGTH = 10_000
 
 
-    """
+def _setting(name: str, default: str = "") -> str:
+    return os.getenv(name, default).strip()
 
-    # Créez un message MIME
-    message = MIMEMultipart()
-    message['From'] = expediteur
-    message['To'] = destinataire
-    message['Subject'] = sujet
 
-    # Attachez le corps HTML au message
-    message.attach(MIMEText(html, 'html'))
-
-    # Connectez-vous au serveur SMTP et envoyez l'email
+def _decode_message(value: str) -> str:
+    """Accepte le format base64 historique et le texte normal."""
+    if not value:
+        return ""
     try:
-        # Créez une session SMTP
-        session = smtplib.SMTP('smtp.gmail.com', 587)  # Remplacez par l'adresse du serveur SMTP et le port
-        session.starttls()  # Sécurisez la connexion
-        session.login(expediteur, mot_de_passe)
-
-        # Envoyez l'email
-        session.sendmail(expediteur, destinataire, message.as_string())
-        print("Email envoyé avec succès!")
-    except Exception as e:
-        print(f"Erreur lors de l'envoi de l'email: {e}")
-    finally:
-        session.quit()
+        return base64.b64decode(value, validate=True).decode("utf-8").strip()
+    except (binascii.Error, UnicodeDecodeError):
+        return value.strip()
 
 
-
-
-
-
-
-
-@app.route('/sendmail',methods=['GET', 'OPTIONS'])
-@cross_origin()
-
-def hello():
-    # Récupération des valeurs d'en-tête
-    mail = request.headers.get('mail')
-    contenu = request.headers.get('contenu')
-    phone = request.headers.get('phone')
-    print(type(phone))
-    if type(phone) != type("hello"):
-        phone = ""
-    if type(contenu) != type("hello"):
-        contenu = ""
-    if type(mail) != type("hello"):
-        mail = ""
-
-    # Affichage des valeurs d'en-tête
-    contenu = str(base64.b64decode(contenu))
-    contenu = contenu[2:]
-    contenu = contenu[:-1]
-    contenu = contenu.replace("\\n","<br>")
-    print(f"Valeur de mail: {mail}")
-    print(f"Valeur de contenu: {contenu}")
-    print(f"Valeur de telephone: {phone}")
-
-    if mail=="":
-        return """{"response" : "Renseignez un mail"}"""
-    elif not '@' in mail:
-        return """{"response" : "Mail non valide"}"""
+def _payload() -> dict[str, str]:
+    """Lit le nouveau JSON et conserve la compatibilité avec l'ancien frontend."""
+    data: dict[str, Any] = request.get_json(silent=True) or {}
+    if not data:
+        data = {
+            "email": request.headers.get("mail", ""),
+            "phone": request.headers.get("phone", ""),
+            "message": _decode_message(request.headers.get("contenu", "")),
+        }
+        message = str(data.get("message", ""))
     else:
-        sendmailtome(mail,contenu, phone)
-        sendmailtohim(mail,contenu,phone)
+        message = str(data.get("message", data.get("contenu", "")))
+    return {
+        "email": str(data.get("email", data.get("mail", ""))).strip(),
+        "phone": str(data.get("phone", "")).strip(),
+        "message": message.strip(),
+    }
 
-        return """{"response" : "Envoyé !"}"""
+
+def _validate(payload: dict[str, str]) -> str | None:
+    if not payload["email"]:
+        return "Renseignez une adresse e-mail."
+    if not EMAIL_RE.fullmatch(payload["email"]):
+        return "Adresse e-mail non valide."
+    if not payload["message"]:
+        return "Renseignez un message."
+    if len(payload["message"]) > MAX_MESSAGE_LENGTH:
+        return "Le message est trop long."
+    return None
 
 
+def _smtp_config() -> dict[str, str | int]:
+    return {
+        "host": _setting("SMTP_HOST", "smtp.gmail.com"),
+        "port": int(_setting("SMTP_PORT", "587")),
+        "username": _setting("SMTP_USERNAME"),
+        "password": os.getenv("SMTP_PASSWORD", ""),
+        "sender": _setting("MAIL_SENDER") or _setting("SMTP_USERNAME"),
+        "recipient": _setting("MAIL_RECIPIENT"),
+    }
 
+
+def _send_email(to: str, subject: str, text: str, html_body: str) -> None:
+    config = _smtp_config()
+    missing = [
+        name
+        for name in ("username", "password", "sender", "recipient")
+        if not config[name]
+    ]
+    if missing:
+        raise RuntimeError("Configuration SMTP incomplète : " + ", ".join(missing))
+
+    message = EmailMessage()
+    message["From"] = str(config["sender"])
+    message["To"] = to
+    message["Subject"] = subject
+    message.set_content(text)
+    message.add_alternative(html_body, subtype="html")
+
+    with smtplib.SMTP(str(config["host"]), int(config["port"]), timeout=20) as smtp:
+        smtp.starttls()
+        smtp.login(str(config["username"]), str(config["password"]))
+        smtp.send_message(message)
+
+
+def _send_contact_emails(payload: dict[str, str]) -> None:
+    email = html.escape(payload["email"])
+    phone = html.escape(payload["phone"] or "Non renseigné")
+    message = html.escape(payload["message"]).replace("\n", "<br>")
+    recipient = _smtp_config()["recipient"]
+
+    owner_html = (
+        "<h2>Bonjour Guillaume !</h2>"
+        f"<p><strong>Adresse :</strong> {email}</p>"
+        f"<p><strong>Téléphone :</strong> {phone}</p>"
+        f"<p><strong>Message :</strong><br>{message}</p>"
+    )
+    _send_email(
+        str(recipient),
+        "Nouveau message depuis le portfolio",
+        f"Adresse : {payload['email']}\nTéléphone : {payload['phone']}\n\n{payload['message']}",
+        owner_html,
+    )
+
+    confirmation_html = (
+        "<p>Bonjour,</p>"
+        "<p>J'ai bien reçu votre demande et je vous remercie pour votre message.</p>"
+        f"<p>Votre numéro de téléphone : <strong>{phone}</strong></p>"
+        "<p>Je reviendrai vers vous au plus vite.</p>"
+        "<p>Bonne journée !<br><br>Guillaume Lechevallier</p>"
+    )
+    _send_email(
+        payload["email"],
+        "J'ai bien reçu votre demande",
+        "J'ai bien reçu votre demande. Je reviendrai vers vous au plus vite.",
+        confirmation_html,
+    )
+
+
+@app.get("/health")
+def health():
+    return jsonify({"status": "ok"})
+
+
+@app.route("/sendmail", methods=["GET", "POST", "OPTIONS"])
+def sendmail():
+    if request.method == "OPTIONS":
+        return ("", 204)
+
+    payload = _payload()
+    error = _validate(payload)
+    if error:
+        return jsonify({"response": error}), 400
+
+    try:
+        _send_contact_emails(payload)
+    except Exception:
+        logger.exception("Échec de l'envoi du formulaire de contact")
+        return jsonify({"response": "Le message n'a pas pu être envoyé."}), 502
+
+    return jsonify({"response": "Envoyé !"})
+
+
+if __name__ == "__main__":
+    app.run(
+        host=_setting("FLASK_HOST", "127.0.0.1"),
+        port=int(_setting("FLASK_PORT", "5000")),
+        debug=_setting("FLASK_DEBUG", "0") == "1",
+    )

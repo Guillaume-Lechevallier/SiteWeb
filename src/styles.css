@@ -1,12 +1,12 @@
 :root {
-  --color-background: #05081c;
-  --color-surface: rgba(18, 24, 53, 0.72);
-  --color-surface-alt: rgba(28, 39, 82, 0.78);
-  --color-primary: #4f9cf9;
-  --color-primary-dark: #3c74d8;
-  --color-accent: #ffd166;
-  --color-text: #f4f7fb;
-  --color-muted: rgba(244, 247, 251, 0.7);
+  --color-background: #f6f8fc;
+  --color-surface: rgba(255, 255, 255, 0.84);
+  --color-surface-alt: rgba(244, 248, 255, 0.94);
+  --color-primary: #1f4aa8;
+  --color-primary-dark: #16398a;
+  --color-accent: #eb168a;
+  --color-text: #10284f;
+  --color-muted: rgba(16, 40, 79, 0.68);
   --max-content-width: 1200px;
   scroll-behavior: smooth;
 }
@@ -22,7 +22,10 @@ html, body {
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-  background: radial-gradient(circle at top left, #101c4d, #05081c 55%);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(31, 74, 168, 0.08), transparent 28%),
+    radial-gradient(circle at 84% 20%, rgba(235, 22, 138, 0.07), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4fc 48%, #fbf9ff 100%);
   color: var(--color-text);
   min-height: 100vh;
 }
@@ -52,7 +55,8 @@ mat-tab-group.mat-mdc-tab-group {
   background: var(--color-surface);
   backdrop-filter: blur(18px);
   padding: 12px;
-  box-shadow: 0 24px 60px rgba(5, 8, 28, 0.45);
+  box-shadow: 0 24px 60px rgba(31, 74, 168, 0.12);
+  border: 1px solid rgba(31, 74, 168, 0.08);
 }
 
 mat-tab-group.mat-mdc-tab-group .mat-mdc-tab-header {
@@ -77,9 +81,9 @@ mat-tab-group.mat-mdc-tab-group .mdc-tab-indicator__content--underline {
   background: linear-gradient(135deg, var(--color-surface), var(--color-surface-alt));
   border-radius: 28px;
   padding: 40px clamp(24px, 3vw, 56px);
-  box-shadow: 0 40px 80px rgba(5, 8, 28, 0.45);
+  box-shadow: 0 40px 80px rgba(31, 74, 168, 0.14);
   backdrop-filter: blur(22px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(31, 74, 168, 0.1);
 }
 
 .section-card:not(:last-of-type) {
@@ -117,7 +121,7 @@ mat-tab-group.mat-mdc-tab-group .mdc-tab-indicator__content--underline {
   font-size: 14px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(255, 209, 102, 0.16);
+  background: rgba(235, 22, 138, 0.1);
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -128,11 +132,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(31, 74, 168, 0.06);
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: rgba(79, 156, 249, 0.65);
+  background-color: rgba(31, 74, 168, 0.5);
   border-radius: 999px;
 }
 

@@ -16,7 +16,7 @@ interface ExternalLink {
   styleUrl: './infocomplementaire.component.css'
 })
 export class InfocomplementaireComponent {
-  readonly permit = 'Permis B en cours (code validé)';
+  readonly permit = 'Permis B';
 
   readonly hobbies: string[] = [
     "Informatique et programmation",
