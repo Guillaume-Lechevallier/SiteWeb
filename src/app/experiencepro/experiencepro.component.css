@@ -17,6 +17,75 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
   max-width: 880px;
 }
 
+.experience-card {
+  display: grid;
+  gap: 24px;
+  text-align: left;
+}
+
+.experience-intro {
+  border-left: 3px solid #eb168a;
+  padding-left: 16px;
+}
+
+.experience-period,
+.experience-company {
+  margin: 0;
+  color: rgba(244, 247, 251, 0.7);
+}
+
+.experience-intro h3 {
+  margin: 4px 0;
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+.experience-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.experience-card h4 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  color: #f4f7fb;
+}
+
+.experience-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.experience-card li {
+  margin-bottom: 8px;
+}
+
+.experience-detail {
+  display: grid;
+  gap: 10px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  border: 1px solid rgba(235, 22, 138, 0.35);
+  border-radius: 999px;
+  padding: 6px 11px;
+  color: #f4f7fb;
+  background: rgba(235, 22, 138, 0.1);
+  font-size: 13px;
+}
+
+.not-documented {
+  margin: 0;
+  color: rgba(244, 247, 251, 0.6);
+  font-style: italic;
+}
+
 .experience-visual {
   display: flex;
   justify-content: center;
@@ -34,5 +103,9 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
   .explication {
     font-size: 15px;
     padding-inline: 4px;
+  }
+
+  .experience-columns {
+    grid-template-columns: 1fr;
   }
 }

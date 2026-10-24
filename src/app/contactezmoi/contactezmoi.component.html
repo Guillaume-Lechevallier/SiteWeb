@@ -26,7 +26,7 @@
     <button mat-raised-button color="primary" type="submit">
       {{ textebouton }}
     </button>
-    <span class="contact-status" *ngIf="statusMessage">{{ statusMessage }}</span>
+    <span class="contact-status" *ngIf="statusMessage" role="status" aria-live="polite">{{ statusMessage }}</span>
   </form>
 
   <p class="contact-note">

@@ -36,6 +36,28 @@ a {
   text-decoration: none;
 }
 
+/* Focus visible et contrasté pour la navigation clavier et les lecteurs d’écran. */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Les animations restent disponibles par défaut, mais respectent le choix système. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 p {
   line-height: 1.7;
   color: var(--color-muted);

@@ -14,6 +14,92 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
   display: grid;
   gap: clamp(16px, 2.5vw, 28px);
   justify-items: start;
+  text-align: left;
+  padding: 4px;
+}
+
+.project-tab--featured {
+  border-top: 2px solid rgba(235, 22, 138, 0.8);
+  padding-top: 18px;
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.project-header h3 {
+  margin: 0;
+  font-size: clamp(21px, 3vw, 30px);
+}
+
+.project-eyebrow {
+  margin: 0 0 6px;
+  color: #eb168a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-status {
+  flex: 0 0 auto;
+  border: 1px solid rgba(79, 156, 249, 0.55);
+  border-radius: 999px;
+  padding: 6px 11px;
+  color: #cfe2ff;
+  background: rgba(79, 156, 249, 0.12);
+  font-size: 13px;
+}
+
+.project-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.project-block {
+  width: 100%;
+}
+
+.project-block h4 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  color: #f4f7fb;
+}
+
+.project-block ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.project-block li {
+  margin-bottom: 8px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  border: 1px solid rgba(235, 22, 138, 0.35);
+  border-radius: 999px;
+  padding: 6px 11px;
+  color: #f4f7fb;
+  background: rgba(235, 22, 138, 0.1);
+  font-size: 13px;
+}
+
+.project-link-note {
+  margin: 0;
+  color: #cfe2ff;
+  font-weight: 600;
 }
 
 .project-text {
@@ -53,6 +139,14 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
 
   .project-text {
     font-size: 15px;
+  }
+
+  .project-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .project-header {
+    flex-direction: column;
   }
 
   .project-caption {
