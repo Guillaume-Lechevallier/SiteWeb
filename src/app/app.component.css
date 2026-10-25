@@ -904,3 +904,8 @@ main {
 .brand-role {
   line-height: 1.25;
 }
+
+.toolbar-nav {
+  padding-inline: 8px;
+  overflow: hidden;
+}
