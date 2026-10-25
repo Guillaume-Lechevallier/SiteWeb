@@ -12,9 +12,16 @@ interface ProjectItem {
   image?: string;
   imageAlt?: string;
   caption?: string;
+  additionalImages?: ProjectImage[];
   linkLabel?: string;
   linkUrl?: string;
   featured?: string;
+}
+
+interface ProjectImage {
+  src: string;
+  alt: string;
+  caption?: string;
 }
 
 @Component({
@@ -82,6 +89,11 @@ export class ProjetspersonnelComponent {
       role: 'Conception du prototype matériel et intégration des services vocaux.',
       status: 'En développement',
       image: 'https://i.ibb.co/t3xTWCv/429934417-1761034327729002-2343471779999387977-n.jpg', imageAlt: 'Prototype Jarvis wearable',
+      additionalImages: [{
+        src: 'assets/jarvis-wearable.gif',
+        alt: 'Prototype Jarvis wearable avec écran et boîtier orange',
+        caption: 'Prototype animé du boîtier portable Jarvis avec son écran intégré.'
+      }],
       featured: 'Robotique'
     },
     {

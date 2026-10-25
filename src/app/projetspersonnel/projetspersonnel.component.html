@@ -37,6 +37,13 @@
         </div>
         <p class="project-caption" *ngIf="project.caption">{{ project.caption }}</p>
       </div>
+      <div class="project-visual" *ngFor="let additionalImage of project.additionalImages">
+        <div class="project-image-wrap">
+          <img class="project-image" [src]="additionalImage.src" [alt]="additionalImage.alt" loading="lazy" (error)="markImageUnavailable($event)">
+          <span class="project-image-fallback" aria-hidden="true">{{ project.name }}</span>
+        </div>
+        <p class="project-caption" *ngIf="additionalImage.caption">{{ additionalImage.caption }}</p>
+      </div>
       <p class="project-link-note" *ngIf="project.linkLabel">{{ project.linkLabel }}</p>
     </article>
   </mat-tab>
