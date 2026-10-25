@@ -31,11 +31,12 @@ export class ExperienceproComponent {
   readonly experiences: ExperienceItem[] = [
     {
       period: 'Depuis 2024', company: 'C.A.E.N. Training', location: 'Caen',
-      role: 'Responsable informatique et roboticien',
+      role: 'Responsable informatique, DPO et roboticien',
       responsibilities: [
         'Modernisation des postes de travail des collaborateurs et des apprenants.',
         'Administration du NAS, du réseau, de l’infrastructure audiovisuelle et des équipements automatisés.',
-        'Support de proximité, supervision de la sécurité du parc et maintenance d’automates industriels.'
+        'Support de proximité, supervision de la sécurité du parc et maintenance d’automates industriels.',
+        'Exercice de la fonction de délégué à la protection des données (DPO) pour C.A.E.N. Training.'
       ],
       solutions: [
         'Scripts de déploiement et d’automatisation des mises à jour.',
