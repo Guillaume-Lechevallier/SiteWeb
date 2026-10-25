@@ -44,7 +44,7 @@ export class ExperienceproComponent {
       ],
       technologies: ['PowerShell', 'Bash', 'WordPress', 'NAS', 'Réseau', 'Automates industriels'],
       outcomes: ['Déploiements plus maîtrisés et mises à jour automatisées.', 'Maintien opérationnel des services, du parc et des équipements du centre de formation.'],
-      image: 'assets/caen-training.svg', imageAlt: 'C.A.E.N. Training'
+      image: 'assets/caen-training.jpg', imageAlt: 'Bâtiment de C.A.E.N. Training'
     },
     {
       period: '2021/2022', company: 'Avem Groupe', location: 'Rennes', role: 'Administrateur bureautique',
