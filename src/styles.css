@@ -166,7 +166,7 @@ body::-webkit-scrollbar-thumb {
 
 @media (max-width: 960px) {
   .section-shell {
-    scroll-margin-top: 225px;
+    scroll-margin-top: 32px;
   }
 
   .section-header {
