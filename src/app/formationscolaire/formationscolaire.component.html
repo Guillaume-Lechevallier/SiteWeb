@@ -5,7 +5,10 @@
       des méthodes de conception, de développement et de déploiement de solutions numériques.
     </p>
     <div class="formation-visual">
-      <img class="imageentreprise" src="https://newsroom.supinfo.com/wp-content/uploads/2020/11/supinfo-logo-2020-quadri-png.png" alt="Logo SUPINFO" loading="lazy" decoding="async">
+      <div class="formation-image-wrap">
+        <img class="imageentreprise" src="https://newsroom.supinfo.com/wp-content/uploads/2020/11/supinfo-logo-2020-quadri-png.png" alt="Logo SUPINFO" loading="lazy" decoding="async" (error)="markImageUnavailable($event)">
+        <span class="formation-image-fallback" aria-hidden="true">SUPINFO</span>
+      </div>
     </div>
   </mat-tab>
 
@@ -15,7 +18,10 @@
       pilotage de projets agiles menés en équipe, du cahier des charges au déploiement.
     </p>
     <div class="formation-visual">
-      <img class="imageentreprise" src="https://lh3.googleusercontent.com/p/AF1QipPXXVil-c6qr7CNoN5gAgr0wq1vOc2Bw9mG2UB2=s680-w680-h510-rw" alt="Campus CESI" loading="lazy" decoding="async">
+      <div class="formation-image-wrap">
+        <img class="imageentreprise" src="https://lh3.googleusercontent.com/p/AF1QipPXXVil-c6qr7CNoN5gAgr0wq1vOc2Bw9mG2UB2=s680-w680-h510-rw" alt="Campus CESI" loading="lazy" decoding="async" (error)="markImageUnavailable($event)">
+        <span class="formation-image-fallback" aria-hidden="true">CESI</span>
+      </div>
     </div>
   </mat-tab>
   <mat-tab label="2021/2022 · Formation DevOps, Rennes" class="titre">
@@ -25,7 +31,10 @@
       Cycle en V et m'a permis de consolider mes compétences techniques malgré l'absence de diplôme final.
     </p>
     <div class="formation-visual">
-      <img class="imageentreprise" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F591463959%2F493801398719%2F1%2Foriginal.20230906-143634?h=230&w=460&auto=format%2Ccompress&q=75&sharp=10&rect=7%2C0%2C914%2C457&s=c2ff38dadbd645525d09fa4ae2e8e31e" alt="Campus EPSI Rennes" loading="lazy" decoding="async">
+      <div class="formation-image-wrap">
+        <img class="imageentreprise" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F591463959%2F493801398719%2F1%2Foriginal.20230906-143634?h=230&w=460&auto=format%2Ccompress&q=75&sharp=10&rect=7%2C0%2C914%2C457&s=c2ff38dadbd645525d09fa4ae2e8e31e" alt="Campus EPSI Rennes" loading="lazy" decoding="async" (error)="markImageUnavailable($event)">
+        <span class="formation-image-fallback" aria-hidden="true">EPSI Rennes</span>
+      </div>
     </div>
   </mat-tab>
 
@@ -37,7 +46,10 @@
       culture DevOps.
     </p>
     <div class="formation-visual">
-      <img class="imageentreprise" src="https://img.gothru.org/pano_zoom.php?p=31328082&i=283/372676844121003733/20210122092111.f15JSA.jpg&w=1200&h=630&a=40&y=347.41&v=5" alt="CFA Saintonge Formation" loading="lazy" decoding="async">
+      <div class="formation-image-wrap">
+        <img class="imageentreprise" src="https://img.gothru.org/pano_zoom.php?p=31328082&i=283/372676844121003733/20210122092111.f15JSA.jpg&w=1200&h=630&a=40&y=347.41&v=5" alt="CFA Saintonge Formation" loading="lazy" decoding="async" (error)="markImageUnavailable($event)">
+        <span class="formation-image-fallback" aria-hidden="true">CFA Saintonge Formation</span>
+      </div>
     </div>
   </mat-tab>
 </mat-tab-group>

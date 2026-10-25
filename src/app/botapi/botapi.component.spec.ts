@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BotapiComponent } from './botapi.component';
 
@@ -8,7 +9,7 @@ describe('BotapiComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BotapiComponent]
+      imports: [BotapiComponent, NoopAnimationsModule]
     })
     .compileComponents();
     

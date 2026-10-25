@@ -12,5 +12,8 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
   styleUrl: './formationscolaire.component.css'
 })
 export class FormationscolaireComponent {
-
+  markImageUnavailable(event: Event) {
+    const image = event.target as HTMLImageElement;
+    image.parentElement?.classList.add('image-failed');
+  }
 }

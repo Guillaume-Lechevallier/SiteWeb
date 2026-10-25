@@ -5,5 +5,15 @@ services:
       dockerfile: Dockerfile
     container_name: lechevallier_cv_frontend
     restart: unless-stopped
+    depends_on:
+      - cv-api
     ports:
       - "127.0.0.1:4300:80"
+  cv-api:
+    build:
+      context: .
+      dockerfile: APIpythonmail/Dockerfile
+    container_name: lechevallier_cv_api
+    restart: unless-stopped
+    env_file:
+      - APIpythonmail/.env

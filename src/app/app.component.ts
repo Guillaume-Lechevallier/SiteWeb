@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { isPlatformBrowser, NgFor } from '@angular/common';
 import { ApropodemoiComponent } from './apropodemoi/apropodemoi.component';
@@ -14,14 +13,12 @@ import { ContactezmoiComponent } from './contactezmoi/contactezmoi.component';
 interface SectionLink {
   id: string;
   label: string;
-  description: string;
 }
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    MatTooltipModule,
     MatToolbar,
     MatButtonModule,
     NgFor,
@@ -37,40 +34,26 @@ interface SectionLink {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements AfterViewInit {
-  readonly cvUrl = 'https://drive.google.com/uc?export=download&id=1y_8AR8-CU54g7YR9j3oapnYWLEaAxga3';
+  readonly cvUrl = 'assets/Guillaume-Lechevallier-CV.pdf';
   readonly currentYear = new Date().getFullYear();
 
   readonly sections: SectionLink[] = [
-    { id: 'about', label: 'À propos', description: 'Mon parcours et ma vision' },
-    { id: 'experience', label: 'Expérience', description: 'Des missions marquantes' },
-    { id: 'education', label: 'Formation', description: 'Un socle académique solide' },
-    { id: 'skills', label: 'Compétences', description: 'Un éventail technique complet' },
-    { id: 'projects', label: 'Réalisations', description: 'Des projets dont je suis fier' },
-    { id: 'links', label: 'Liens', description: 'Contact et ressources utiles' },
-    { id: 'contact', label: 'Contact', description: 'Discutons ensemble' }
+    { id: 'about', label: 'À propos' },
+    { id: 'experience', label: 'Expérience' },
+    { id: 'education', label: 'Formation' },
+    { id: 'skills', label: 'Compétences' },
+    { id: 'projects', label: 'Réalisations' },
+    { id: 'links', label: 'Liens' },
+    { id: 'contact', label: 'Contact' }
   ];
 
   activeSection = this.sections[0].id;
   private readonly isBrowser: boolean;
-  private lastGridInput = 0;
   private readonly gridInputCapture = (event: MouseEvent) => {
     if (event.button !== 0) {
       return;
     }
-
-    // Un clic souris peut produire pointerdown, mousedown puis click.
-    // La capture se fait au niveau de window pour traverser tous les calques.
-    const now = performance.now();
-    if (now - this.lastGridInput < 250) {
-      return;
-    }
-
-    this.lastGridInput = now;
-    const target = event.target instanceof HTMLElement ? event.target : null;
-    const isInteractive = target?.closest('a, button, input, textarea, select, [contenteditable="true"]');
-    if (!isInteractive) {
-      event.preventDefault();
-    }
+    // Le clic traverse les calques sans annuler la sélection native du texte.
     this.handleGridClick(event);
   };
 
@@ -83,10 +66,6 @@ export class AppComponent implements AfterViewInit {
       return;
     }
 
-    window.addEventListener('pointerdown', this.gridInputCapture, true);
-    window.addEventListener('pointerup', this.gridInputCapture, true);
-    window.addEventListener('mousedown', this.gridInputCapture, true);
-    window.addEventListener('mouseup', this.gridInputCapture, true);
     window.addEventListener('click', this.gridInputCapture, true);
 
     if (document.querySelector('script[data-shopalerte-marketing-grid]')) {

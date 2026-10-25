@@ -1,71 +1,41 @@
 # Portfolio de Guillaume Lechevallier
 
-Ce dépôt contient le front-end Angular du portfolio de Guillaume Lechevallier ainsi qu'une petite API Flask dédiée à l'envoi des messages de contact. L'interface a été complètement repensée pour offrir une expérience immersive tout en conservant les contenus existants.
+Portfolio Angular pré-rendu pour présenter les expériences, compétences, formations et réalisations de Guillaume Lechevallier. Le formulaire de contact utilise une API Flask hébergée avec le front derrière le même domaine.
 
-## Aperçu de l'interface
-
-- Hero immersif entièrement restructuré avec grille responsive, points clés et visuel dynamique.
-- Nouvelles mises en page pour les sections « À propos », « Compétences » et « Réalisations » avec des cartes responsives.
-- Section « Réalisations » enrichie du projet de détection automatique de varroas (YOLOv8, OpenCV, dataset annoté).
-- Section « Expériences professionnelles » actualisée avec l'onglet C.A.E.N. Training.
-- Formulaires de contact et d'interaction bot modernisés pour une lecture claire.
-- Palette sombre modernisée, effets de profondeur et typographie harmonisée.
-- Mise en page responsive : barre d'outils scrollable encapsulée dans une coque sticky, CTA adaptatifs et grilles fluides sur mobile.
-- Barre de navigation principale repensée avec une grille adaptive, centrée dans un container et réactive du très grand écran au smartphone.
-
-## Prérequis
-
-- Node.js 18+ et npm.
-- Python 3.10+ pour l'API Flask.
-- L'installation des dépendances Python nécessite un accès réseau pour récupérer les packages `Flask` et `Flask-Cors`.
-
-## Installation & builds
+## Développement et vérifications
 
 ```bash
-# Installation des dépendances front-end
 npm install
-
-# Compilation de l'application Angular
 npm run build
+npm test -- --watch=false --browsers=ChromeHeadless
+python -m unittest discover -s APIpythonmail -p 'test_*.py'
 ```
 
-Pour la partie backend :
+Le front peut être lancé localement avec `npm start`. Pour tester le formulaire en développement, il faut aussi une route `/api/sendmail` pointant vers l'API ; le serveur de développement Angular seul ne fournit pas cette route.
+
+## CV PDF
+
+Le bouton « Télécharger mon CV » sert `src/assets/Guillaume-Lechevallier-CV.pdf`. Le document est généré à partir des informations publiques du site avec `tools/generate_cv.py` et ReportLab. Vérifier les dates et le contenu avant toute régénération :
 
 ```bash
-cd APIpythonmail
-python -m venv .venv
-source .venv/bin/activate  # .venv\Scripts\activate sur Windows
-pip install -r requirements.txt
-python main.py
+python tools/generate_cv.py
 ```
 
-Copiez `APIpythonmail/.env.example` comme modèle de configuration et définissez
-les variables dans l'environnement avant de lancer l'API. Utilisez un mot de
-passe d'application SMTP, jamais le mot de passe principal de votre boîte mail.
-En local, le frontend utilise automatiquement `http://127.0.0.1:5000/sendmail`.
-Sur le site hébergé, il conserve l'URL de l'API PythonAnywhere.
+Le résultat est un PDF A4 d'une page, avec texte sélectionnable et liens de contact.
 
-> **Remarque :** L'environnement de travail actuel ne dispose pas d'accès réseau sortant ; l'installation de `Flask` / `Flask-Cors` ne peut donc pas être réalisée automatiquement dans ce contexte. Les instructions ci-dessus restent valables sur une machine avec un accès internet.
+## Déploiement sur le serveur
 
-## Structure des projets
+Le site public utilise `docker-compose.server.yml` : Nginx sert le build Angular et transmet `/api/sendmail` à Flask sur le réseau Docker interne. L'API n'expose pas directement de port public. Le proxy HTTPS existant continue de pointer vers `127.0.0.1:4300`.
 
-- `src/` : application Angular (standalone components, Angular Material).
-- `APIpythonmail/` : micro-API Flask pour l'envoi d'emails, dépendances listées dans `requirements.txt`.
-- `angular.json` : budgets ajustés pour refléter la nouvelle richesse visuelle.
+1. Après validation locale, committer et pousser les sources sur Git.
+2. Sur le serveur, exécuter `git pull --ff-only` dans le dépôt du portfolio.
+3. Transférer le contenu de `dist/untitled/browser/` sur le serveur au même chemin : ce dossier est ignoré par Git.
+4. Déposer `APIpythonmail/.env` sur le serveur sans le committer. Utiliser `.env.example` comme modèle ; `MAIL_RECIPIENT` désigne la boîte recevant les demandes.
+5. Reconstruire réellement les images avec `docker compose -f docker-compose.server.yml up -d --build --force-recreate`. Une simple recréation de conteneur conserve l'ancien front.
+6. Vérifier `/health`, `/api/health`, le PDF, l'affichage mobile et le formulaire depuis le domaine public.
 
-## Scripts utiles
+Le mot de passe SMTP doit être un mot de passe d'application et rester hors du dépôt. En cas d'échec d'envoi, le formulaire conserve le texte saisi et propose un lien e-mail direct.
 
-- `npm run build` : build de production de l'interface.
-- `ng serve` : serveur de développement (non exécuté ici mais disponible).
-- `python APIpythonmail/main.py` : lance l'API Flask (nécessite les dépendances Python installées).
+## Hébergement Firebase
 
-## Déploiement
-
-Le front est conçu pour être déployé sur Firebase Hosting. L'API Flask peut être hébergée sur un service compatible (PythonAnywhere, VM personnelle…).
-
-## Notes de maintenance
-
-- La barre d'outils sticky combine désormais une marge basse (y compris lorsque `gap` est supporté) et une gestion via `gap` conditionnelle pour éviter que le hero ne chevauche la navigation sur mobile.
-- Le header hero dispose d'un `padding-top` progressif et d'un `scroll-margin-top` pour rester lisible sous la toolbar sticky, même lorsque la navigation se replie en colonne.
-- Les media queries ≤960px/560px/420px ajustent polices et espacements de la navigation pour préserver la lisibilité sans menu hamburger : harmoniser toute nouvelle variation avec ces règles.
-
+`angular.json` pré-rend la route principale au build ; les fichiers statiques peuvent donc aussi être servis par Firebase Hosting. Le formulaire `/api/sendmail` dépend toutefois de l'API Flask et d'une règle de proxy compatible : un déploiement du front seul sur Firebase ne suffit pas à l'activer.

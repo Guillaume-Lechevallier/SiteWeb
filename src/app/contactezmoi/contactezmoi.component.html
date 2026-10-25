@@ -5,6 +5,7 @@
       Laissez-moi un message avec votre email, vos coordonnées et quelques détails sur votre besoin. Je vous répondrai rapidement
       et vous recevrez une confirmation automatique.
     </p>
+    <p class="contact-direct">Vous pouvez aussi <a href="mailto:moilechevallier@gmail.com">m’écrire directement par e-mail</a>.</p>
   </div>
 
   <form class="contact-form" (submit)="$event.preventDefault(); sendRequest();">
@@ -27,9 +28,10 @@
       {{ textebouton }}
     </button>
     <span class="contact-status" *ngIf="statusMessage" role="status" aria-live="polite">{{ statusMessage }}</span>
+    <a class="contact-fallback" *ngIf="showEmailFallback" [href]="fallbackEmailUrl">Ouvrir mon e-mail avec ce message</a>
   </form>
 
   <p class="contact-note">
-    Les données sont traitées via une API personnelle développée en Python/Flask. Aucun service tiers ne stocke vos informations.
+    Le formulaire utilise mon API Python/Flask. L’envoi direct par e-mail ouvre votre messagerie.
   </p>
 </div>

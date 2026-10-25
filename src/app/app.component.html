@@ -39,7 +39,6 @@
           [class.toolbar-link--active]="section.id === activeSection"
           [attr.aria-current]="section.id === activeSection ? 'location' : null"
           [attr.aria-controls]="section.id"
-          [matTooltip]="section.description"
           (click)="scrollTo(section.id)"
           type="button"
         >
@@ -52,9 +51,7 @@
         mat-flat-button
         color="primary"
         [href]="cvUrl"
-        target="_blank"
-        rel="noopener"
-        matTooltip="Télécharger mon CV"
+        download="Guillaume-Lechevallier-CV.pdf"
       >
         <span class="icon icon-download" aria-hidden="true"></span>
         <span>Télécharger mon CV</span>
@@ -222,7 +219,7 @@
           <span class="icon icon-public" aria-hidden="true"></span>
           <span>LinkedIn</span>
         </a>
-        <a class="footer-link" [href]="cvUrl" target="_blank" rel="noopener">
+        <a class="footer-link" [href]="cvUrl" download="Guillaume-Lechevallier-CV.pdf">
           <span class="icon icon-pdf" aria-hidden="true"></span>
           <span>Mon CV</span>
         </a>

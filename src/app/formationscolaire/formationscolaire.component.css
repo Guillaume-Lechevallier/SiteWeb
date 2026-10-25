@@ -23,6 +23,34 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
   margin-bottom: 16px;
 }
 
+.formation-image-wrap {
+  display: flex;
+  justify-content: center;
+  width: min(100%, 320px);
+  min-height: 80px;
+}
+
+.formation-image-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid rgba(31, 74, 168, 0.12);
+  border-radius: 18px;
+  background: rgba(31, 74, 168, 0.08);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.formation-image-wrap.image-failed .formation-image-fallback {
+  display: flex;
+}
+
+.formation-image-wrap.image-failed .imageentreprise {
+  display: none;
+}
+
 .imageentreprise {
   width: min(100%, 320px);
   border-radius: 18px;

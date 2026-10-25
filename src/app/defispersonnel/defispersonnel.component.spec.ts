@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DefispersonnelComponent } from './defispersonnel.component';
 
@@ -8,7 +9,7 @@ describe('DefispersonnelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DefispersonnelComponent]
+      imports: [DefispersonnelComponent, NoopAnimationsModule]
     })
     .compileComponents();
     

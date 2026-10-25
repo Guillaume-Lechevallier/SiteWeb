@@ -94,6 +94,7 @@ mat-tab-group.mat-mdc-tab-group .mdc-tab-indicator__content--underline {
   width: min(100%, var(--max-content-width));
   margin: 0 auto;
   padding: 64px 24px;
+  scroll-margin-top: 120px;
 }
 
 .section-shell + .section-shell {
@@ -145,7 +146,7 @@ mat-tab-group.mat-mdc-tab-group .mdc-tab-indicator__content--underline {
   padding: 8px 14px;
   border-radius: 999px;
   background: rgba(235, 22, 138, 0.1);
-  color: var(--color-accent);
+  color: #b80e6b;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -164,6 +165,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 960px) {
+  .section-shell {
+    scroll-margin-top: 225px;
+  }
+
   .section-header {
     flex-direction: column;
     align-items: flex-start;

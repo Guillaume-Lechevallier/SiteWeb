@@ -14,6 +14,22 @@
   max-width: 640px;
 }
 
+.contact-direct {
+  margin-top: 12px !important;
+}
+
+.contact-direct a,
+.contact-fallback {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-fallback {
+  justify-self: start;
+}
+
 .contact-form {
   display: grid;
   gap: 20px;
@@ -37,7 +53,7 @@ button[mat-raised-button] {
 
 .contact-status {
   font-size: 14px;
-  color: var(--color-accent);
+  color: #b80e6b;
 }
 
 .contact-note {

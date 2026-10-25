@@ -1,0 +1,7 @@
+.git
+.angular
+node_modules
+APIpythonmail/.env
+**/__pycache__
+dist/untitled/server
+tools
