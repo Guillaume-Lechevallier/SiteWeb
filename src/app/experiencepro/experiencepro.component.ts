@@ -30,7 +30,7 @@ export class ExperienceproComponent {
 
   readonly experiences: ExperienceItem[] = [
     {
-      period: 'Depuis 2024', company: 'C.A.E.N. Training', location: 'Paris',
+      period: 'Depuis 2024', company: 'C.A.E.N. Training', location: 'Caen',
       role: 'Responsable informatique et roboticien',
       responsibilities: [
         'Modernisation des postes de travail des collaborateurs et des apprenants.',
