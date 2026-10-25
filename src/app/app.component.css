@@ -905,7 +905,7 @@ main {
   line-height: 1.25;
 }
 
-.toolbar-nav {
-  padding-inline: 8px;
-  overflow: hidden;
+.toolbar-nav .toolbar-link:first-child {
+  margin-left: 4px;
 }
+
