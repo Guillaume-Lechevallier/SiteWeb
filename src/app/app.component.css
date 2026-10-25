@@ -121,8 +121,16 @@
 }
 
 .brand-photo {
+  display: block;
+  width: 54px;
+  height: 54px;
+  aspect-ratio: 1;
   object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
   border: 2px solid rgba(31, 74, 168, 0.18);
+  background: #eef3fb;
+  box-shadow: 0 3px 10px rgba(16, 40, 79, 0.12);
   justify-self: center;
 }
 
@@ -130,6 +138,7 @@
   display: grid;
   gap: 4px;
   min-width: 0;
+  align-content: center;
 }
 
 .brand-name {
@@ -553,10 +562,9 @@ main {
 }
 
 .brand-photo {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border-width: 3px;
+  width: 54px;
+  height: 54px;
+  border-width: 2px;
 }
 
 .brand-name {
