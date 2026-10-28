@@ -28,11 +28,6 @@
                 "input": "src",
                 "output": "/"
               },
-              {
-                "glob": "sitemap.xml",
-                "input": "src",
-                "output": "/"
-              }
             ],
             "styles": [
               "src/custom-theme.scss",
