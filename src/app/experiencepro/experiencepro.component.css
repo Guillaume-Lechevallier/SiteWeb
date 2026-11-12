@@ -24,7 +24,7 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
 }
 
 .experience-intro {
-  border-left: 3px solid #eb168a;
+  border-left: 3px solid #e0091d;
   padding-left: 16px;
 }
 
@@ -72,11 +72,11 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
 }
 
 .tag {
-  border: 1px solid rgba(235, 22, 138, 0.35);
+  border: 1px solid rgba(224, 9, 29, 0.35);
   border-radius: 999px;
   padding: 6px 11px;
   color: #b80e6b;
-  background: rgba(235, 22, 138, 0.1);
+  background: rgba(224, 9, 29, 0.1);
   font-size: 13px;
 }
 
@@ -100,10 +100,10 @@ mat-tab-group ::ng-deep .mat-mdc-tab-body-content {
   justify-content: center;
   width: 100%;
   min-height: 80px;
-  border: 1px solid rgba(31, 74, 168, 0.12);
+  border: 1px solid rgba(63, 181, 157, 0.12);
   border-radius: 18px;
   color: var(--color-primary);
-  background: rgba(31, 74, 168, 0.08);
+  background: rgba(63, 181, 157, 0.08);
   font-weight: 700;
 }
 
