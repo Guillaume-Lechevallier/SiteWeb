@@ -27,14 +27,14 @@
     var maxLinksPerDot = 4;
     var dotPalette = [
       {
-        name: 'blue',
-        color: '#2450b1',
-        glow: 'rgba(36, 80, 177, 0.18)'
+        name: 'teal',
+        color: '#3fb59d',
+        glow: 'rgba(63, 181, 157, 0.18)'
       },
       {
-        name: 'pink',
-        color: '#eb168a',
-        glow: 'rgba(235, 22, 138, 0.18)'
+        name: 'red',
+        color: '#e0091d',
+        glow: 'rgba(224, 9, 29, 0.18)'
       }
     ];
 
@@ -410,7 +410,7 @@
           y: centerY,
           gridX: centerX / bounds.grid,
           gridY: centerY / bounds.grid,
-          color: dot.dataset.saHex || '#2450b1'
+          color: dot.dataset.saHex || '#3fb59d'
         };
       });
     }
@@ -522,8 +522,8 @@
         lineEntry.gradient.setAttribute('y1', link.ay.toFixed(2));
         lineEntry.gradient.setAttribute('x2', link.bx.toFixed(2));
         lineEntry.gradient.setAttribute('y2', link.by.toFixed(2));
-        lineEntry.start.setAttribute('stop-color', link.startColor || '#2450b1');
-        lineEntry.end.setAttribute('stop-color', link.endColor || '#eb168a');
+        lineEntry.start.setAttribute('stop-color', link.startColor || '#3fb59d');
+        lineEntry.end.setAttribute('stop-color', link.endColor || '#e0091d');
 
         lineEntry.line.setAttribute('x1', link.ax.toFixed(2));
         lineEntry.line.setAttribute('y1', link.ay.toFixed(2));

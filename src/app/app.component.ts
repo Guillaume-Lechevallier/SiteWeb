@@ -113,10 +113,10 @@ export class AppComponent implements AfterViewInit {
     const x = Math.max(grid, Math.min(rect.width - grid, Math.round((event.clientX - rect.left) / grid) * grid));
     const y = Math.max(grid * 2, Math.min(rect.height - grid, Math.round((event.clientY - rect.top) / grid) * grid));
     const dot = document.createElement('span');
-    const isPink = Math.random() >= 0.5;
+    const isRed = Math.random() >= 0.5;
     dot.className = 'sa-grid-dot sa-grid-dot-manual is-active';
-    dot.style.setProperty('--sa-dot-color', isPink ? '#eb168a' : '#2450b1');
-    dot.style.setProperty('--sa-dot-glow', isPink ? 'rgba(235, 22, 138, 0.18)' : 'rgba(36, 80, 177, 0.18)');
+    dot.style.setProperty('--sa-dot-color', isRed ? '#e0091d' : '#3fb59d');
+    dot.style.setProperty('--sa-dot-glow', isRed ? 'rgba(224, 9, 29, 0.18)' : 'rgba(63, 181, 157, 0.18)');
     dot.style.left = `${x}px`;
     dot.style.top = `${y}px`;
     dot.style.opacity = '0.96';
